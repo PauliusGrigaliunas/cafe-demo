@@ -16,11 +16,9 @@ namespace CafeApp
 
         public string name;
         public string surname;
-        public string e_mail;
+        public string e_mail;  // NOTE: Email = username
         public string password;
 
-       // private static string pathToFile = @Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\GitHub\cafe-demo\CafeApp\CafeApp\register.txt";
-    
         public RegisterWindow()
         {
             InitializeComponent();
@@ -37,6 +35,9 @@ namespace CafeApp
             surname = textBox2.Text;
             e_mail = textBox3.Text;
             password = textBox4.Text;
+            /// TODO: Validation system (check for valid email, password. 
+            /// After validating data INSTERT TO DB
+            /// Note: Don't forget about try/catch 
         }
     }
 }
