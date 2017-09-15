@@ -1,0 +1,10 @@
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\bin\Debug\ManagingRestaurants.exe.config
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\bin\Debug\ManagingRestaurants.exe
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\bin\Debug\ManagingRestaurants.pdb
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\obj\Debug\ManagingRestaurants.csprojResolveAssemblyReference.cache
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\obj\Debug\ManagingRestaurants.AdminPanel.resources
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\obj\Debug\ManagingRestaurants.Properties.Resources.resources
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\obj\Debug\ManagingRestaurants.csproj.GenerateResource.Cache
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\obj\Debug\ManagingRestaurants.csproj.CoreCompileInputs.cache
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\obj\Debug\ManagingRestaurants.exe
+C:\Users\Mode\Documents\GitHub\Book_a_Table\ManagingRestaurants\ManagingRestaurants\obj\Debug\ManagingRestaurants.pdb
