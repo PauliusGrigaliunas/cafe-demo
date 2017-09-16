@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Drawing.Image;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Drawing;
 
 public class Kavine
 {
-    private string _searchCode { get; } //read-only outside the class
-
-    protected string _name;
-    protected string _address;
-    protected string _description;
-    protected string _phoneNumber;
-    protected Image _mainImage;
+    public string _searchCode { get; private set; } //read-only outside of the class
+    public string _name;
+    public string _address;
+    public string _description;
+    public string _phoneNumber;
+    public Image _mainImage;
     //protected var locationVar; //placeholder if we decide to do anything with GoogleMaps
-    protected int _tableCount;
-
-    protected int availableTables;
+    public int _tableCount;
+    public int availableTables;
 
     public Kavine(string name, string address, int tableCount)
     {
@@ -31,22 +32,31 @@ public class Kavine
         if (_name.Length > 2)                   //jei vardas bent 3 raides
         {                                       //paima 3 raides i _searchCode
             namePart = _name.Substring(0, 3);
+            namePart = namePart.ToUpper();
         }
         else                                    //kitu atveju sugeneruoja random 3 raides
         {
-            namePart = RandomString(3);
+            namePart = RandomTextString(3);
         }
 
-        string numberPart = RandomString(3);
+        string numberPart = RandomNumberString(3);
 
         _searchCode = namePart + "-" + numberPart;
     }
 
-    //TODO: split to char string and numeric string
-    static string RandomString(int length)
+    static string RandomNumberString(int length)
     {
         Random random = new Random();
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const string chars = "0123456789";
+
+        return new string(Enumerable.Repeat(chars, length)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
+
+    static string RandomTextString(int length)
+    {
+        Random random = new Random();
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         return new string(Enumerable.Repeat(chars, length)
           .Select(s => s[random.Next(s.Length)]).ToArray());
