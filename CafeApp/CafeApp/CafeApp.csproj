@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="CafeDataForm.Designer.cs">
       <DependentUpon>CafeDataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterWindow.cs">
       <SubType>Form</SubType>
     </Compile>
