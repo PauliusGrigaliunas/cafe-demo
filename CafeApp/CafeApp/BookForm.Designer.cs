@@ -50,6 +50,7 @@
             this.listCafe.Name = "listCafe";
             this.listCafe.Size = new System.Drawing.Size(496, 404);
             this.listCafe.TabIndex = 1;
+            this.listCafe.SelectedIndexChanged += new System.EventHandler(this.listCafe_SelectedIndexChanged);
             // 
             // BookForm
             // 

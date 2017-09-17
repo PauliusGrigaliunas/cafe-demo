@@ -34,17 +34,35 @@ namespace CafeApp
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-
+            populateCafe();
         }
 
         private void populateCafe() {
 
-            connection = new SqlConnection(ConnectionString);
-            connection.Open();
+            using (connection = new SqlConnection(ConnectionString))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM CaffeTable", connection)) {
+
+                DataTable cafeTable = new DataTable();
+                adapter.Fill(cafeTable);
+
+                
+
+                listCafe.DisplayMember = "Name";
+                listCafe.ValueMember = "Id";
+                listCafe.DataSource = cafeTable;
 
 
-            connection.Close();
 
+            }
+
+                    
+
+
+        }
+
+        private void listCafe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(listCafe.SelectedValue.ToString());
         }
     }
 }
