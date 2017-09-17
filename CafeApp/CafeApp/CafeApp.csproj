@@ -60,8 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
-
     <Compile Include="RegisterWindow.cs">
       <SubType>Form</SubType>
     </Compile>
