@@ -9,14 +9,16 @@ namespace CafeApp
     static class KarolisMain
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Kavines objekto sukūrimo - push'inimo į DB formos paleidimas
+        /// -K.S. 
         /// </summary>
-        [STAThread]
+        /*[STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CafeDataForm());
         }
+        */
     }
 }
