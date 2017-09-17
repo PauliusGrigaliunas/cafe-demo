@@ -64,6 +64,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Database1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +81,8 @@
     </Compile>
 =======
 >>>>>>> parent of 531ccf7... ad
+=======
+>>>>>>> parent of a5623d3... Create a Table
 =======
 >>>>>>> parent of a5623d3... Create a Table
 =======
