@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Device.Location;
+using GoogleDirections;
 
 namespace CafeApp
 {
@@ -18,18 +19,16 @@ namespace CafeApp
             InitializeComponent();
         }
 
+        Geocoder geocoder = new Geocoder("AIzaSyBCSrZJLMW4FiC85dC7TW6XSxBOFn7LGwU");
         GeoCoordinateWatcher watcher = null;
         GeoCoordinate coordinate = null;
-        CivicAddressResolver resolver = null;
-        CivicAddress address = null;
+
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
             watcher = new GeoCoordinateWatcher();
             coordinate = new GeoCoordinate();
-            resolver = new CivicAddressResolver();
-            address = new CivicAddress();
             watcher.StatusChanged += watcher_StatusChanged;
             watcher.Start();
         }
@@ -44,18 +43,17 @@ namespace CafeApp
                 }
                 else
                 {
-                    coordinate = watcher.Position.Location;
-                    address = resolver.ResolveAddress(coordinate);
-
-                    
+                    coordinate = watcher.Position.Location;      
                 }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            textBox1.Text =String.Format("Latitude:{0} Longtitude{1}",address.CountryRegion, address.City);
+            double Latitude = coordinate.Latitude;
+            double Longtitude = coordinate.Longitude;
+            String address = geocoder.ReverseGeocode(new LatLng(Latitude,Longtitude));
+            textBox1.Text =String.Format("Location: "+address);
         }
     }
 }
