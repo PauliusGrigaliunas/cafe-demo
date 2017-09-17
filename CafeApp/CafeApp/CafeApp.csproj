@@ -46,6 +46,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,14 +64,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CafeDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CafeDataForm.Designer.cs">
+      <DependentUpon>CafeDataForm.cs</DependentUpon>
     <Compile Include="RegisterWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegisterWindow.Designer.cs">
       <DependentUpon>RegisterWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="KarolisMain.cs" />
+    <Compile Include="Kavine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLoperations.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
