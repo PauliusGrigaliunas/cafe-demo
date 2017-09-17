@@ -2,17 +2,14 @@
 
 **Šiuo momentu kavinė atrodo taip:**
 
-    private string _searchCode { get; } //read-only outside the class
-
-    protected string _name;
-    protected string _address;
-    protected string _description;
-    protected string _phoneNumber;
-    protected Image _mainImage;
-    //protected var locationVar; //placeholder if we decide to do anything with GoogleMaps
-    protected int _tableCount;
-
-    protected int availableTables;
+    public string _searchCode { get; } //read-only outside the class
+    public string _name;
+    public string _address;
+    public string _description;
+    public string _phoneNumber;
+    public Image _mainImage;
+    public int _tableCount;
+    public int availableTables; //a.k.a. free tables
 
     public Kavine(string name, string address, int tableCount)
     {
