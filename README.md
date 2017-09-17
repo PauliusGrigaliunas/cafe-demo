@@ -20,3 +20,5 @@
         //_mainImage = some stock image
         GenerateAndSet_searchCode();
     }
+
+GenerateAndSet_searchCode(); sugeneruoja "[3raides]-[3skaiciai]" kodą (pvz: DEX-201) 
