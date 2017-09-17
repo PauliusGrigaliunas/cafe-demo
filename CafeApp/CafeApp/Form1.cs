@@ -23,8 +23,6 @@ namespace CafeApp
         GeoCoordinateWatcher watcher = null;
         GeoCoordinate coordinate = null;
 
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             watcher = new GeoCoordinateWatcher();
