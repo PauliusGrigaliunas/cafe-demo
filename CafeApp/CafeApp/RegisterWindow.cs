@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data.SqlServerCe;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
