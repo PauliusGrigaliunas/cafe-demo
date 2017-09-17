@@ -48,6 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,20 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookATableDatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookATableDatabaseDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="BookDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BookDatabaseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BookDatabaseDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="BookForm.cs">
       <SubType>Form</SubType>
@@ -96,17 +87,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <None Include="BookATableDatabaseDataSet.xsc">
-      <DependentUpon>BookATableDatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BookATableDatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BookATableDatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BookATableDatabaseDataSet.xss">
-      <DependentUpon>BookATableDatabaseDataSet.xsd</DependentUpon>
-    </None>
     <None Include="BookDatabaseDataSet.xsc">
       <DependentUpon>BookDatabaseDataSet.xsd</DependentUpon>
     </None>
@@ -117,17 +97,6 @@
     </None>
     <None Include="BookDatabaseDataSet.xss">
       <DependentUpon>BookDatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BookDatabaseDataSet1.xsc">
-      <DependentUpon>BookDatabaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BookDatabaseDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BookDatabaseDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BookDatabaseDataSet1.xss">
-      <DependentUpon>BookDatabaseDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

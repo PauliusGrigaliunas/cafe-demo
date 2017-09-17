@@ -7,29 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace CafeApp
 {
     public partial class BookForm : Form
     {
+        String ConnectionString; // String to reach database
+        SqlConnection connection; //
+
         public BookForm()
         {
             InitializeComponent();
+
+            ConnectionString = ConfigurationManager.ConnectionStrings["CafeApp.Properties.Settings.BookDatabaseConnectionString"].ConnectionString;
+
+
+
         }
 
-        private void tableBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.tableBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bookATableDatabaseDataSet);
 
         }
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bookDatabaseDataSet.Table' table. You can move, or remove it, as needed.
-            this.tableTableAdapter1.Fill(this.bookDatabaseDataSet.Table);
-            // TODO: This line of code loads data into the 'bookATableDatabaseDataSet.Table' table. You can move, or remove it, as needed.
+
+        }
+
+        private void populateCafe() {
+
+            connection = new SqlConnection(ConnectionString);
+            connection.Open();
+
+
+            connection.Close();
 
         }
     }

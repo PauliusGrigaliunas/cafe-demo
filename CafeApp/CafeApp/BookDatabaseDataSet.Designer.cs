@@ -287,6 +287,8 @@ namespace CafeApp {
             
             private global::System.Data.DataColumn columnPhone_Number;
             
+            private global::System.Data.DataColumn columnAll_tables;
+            
             private global::System.Data.DataColumn columnFree_tables;
             
             private global::System.Data.DataColumn columnRating;
@@ -362,6 +364,14 @@ namespace CafeApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn All_tablesColumn {
+                get {
+                    return this.columnAll_tables;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn Free_tablesColumn {
                 get {
                     return this.columnFree_tables;
@@ -429,13 +439,14 @@ namespace CafeApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRow AddTableRow(string Id, string Name, string Address, string Phone_Number, int Free_tables, double Rating, string Comments, string Hours_of_work) {
+            public TableRow AddTableRow(string Id, string Name, string Address, string Phone_Number, int All_tables, int Free_tables, double Rating, string Comments, string Hours_of_work) {
                 TableRow rowTableRow = ((TableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Name,
                         Address,
                         Phone_Number,
+                        All_tables,
                         Free_tables,
                         Rating,
                         Comments,
@@ -473,6 +484,7 @@ namespace CafeApp {
                 this.columnName = base.Columns["Name"];
                 this.columnAddress = base.Columns["Address"];
                 this.columnPhone_Number = base.Columns["Phone Number"];
+                this.columnAll_tables = base.Columns["All tables"];
                 this.columnFree_tables = base.Columns["Free tables"];
                 this.columnRating = base.Columns["Rating"];
                 this.columnComments = base.Columns["Comments"];
@@ -490,6 +502,8 @@ namespace CafeApp {
                 base.Columns.Add(this.columnAddress);
                 this.columnPhone_Number = new global::System.Data.DataColumn("Phone Number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhone_Number);
+                this.columnAll_tables = new global::System.Data.DataColumn("All tables", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAll_tables);
                 this.columnFree_tables = new global::System.Data.DataColumn("Free tables", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFree_tables);
                 this.columnRating = new global::System.Data.DataColumn("Rating", typeof(double), null, global::System.Data.MappingType.Element);
@@ -509,10 +523,12 @@ namespace CafeApp {
                 this.columnAddress.MaxLength = 50;
                 this.columnPhone_Number.AllowDBNull = false;
                 this.columnPhone_Number.MaxLength = 50;
+                this.columnAll_tables.AllowDBNull = false;
                 this.columnFree_tables.AllowDBNull = false;
                 this.columnRating.AllowDBNull = false;
                 this.columnComments.AllowDBNull = false;
                 this.columnComments.MaxLength = 2147483647;
+                this.columnHours_of_work.AllowDBNull = false;
                 this.columnHours_of_work.MaxLength = 50;
                 this.ExtendedProperties.Add("Generator_RowClassName", "TableRow");
                 this.ExtendedProperties.Add("Generator_RowEvArgName", "TableRowChangeEvent");
@@ -707,6 +723,17 @@ namespace CafeApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int All_tables {
+                get {
+                    return ((int)(this[this.tableTable.All_tablesColumn]));
+                }
+                set {
+                    this[this.tableTable.All_tablesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int Free_tables {
                 get {
                     return ((int)(this[this.tableTable.Free_tablesColumn]));
@@ -742,28 +769,11 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Hours_of_work {
                 get {
-                    try {
-                        return ((string)(this[this.tableTable.Hours_of_workColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Hours of work\' in table \'Table\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTable.Hours_of_workColumn]));
                 }
                 set {
                     this[this.tableTable.Hours_of_workColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsHours_of_workNull() {
-                return this.IsNull(this.tableTable.Hours_of_workColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetHours_of_workNull() {
-                this[this.tableTable.Hours_of_workColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -930,6 +940,7 @@ namespace CafeApp.BookDatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Address", "Address");
             tableMapping.ColumnMappings.Add("Phone Number", "Phone Number");
+            tableMapping.ColumnMappings.Add("All tables", "All tables");
             tableMapping.ColumnMappings.Add("Free tables", "Free tables");
             tableMapping.ColumnMappings.Add("Rating", "Rating");
             tableMapping.ColumnMappings.Add("Comments", "Comments");
@@ -937,38 +948,40 @@ namespace CafeApp.BookDatabaseDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Table] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Address] = @Original_Address) AND ([Phone Number] = @Original_Phone_Number) AND ([Free tables] = @Original_Free_tables) AND ([Rating] = @Original_Rating) AND ((@IsNull_Hours_of_work = 1 AND [Hours of work] IS NULL) OR ([Hours of work] = @Original_Hours_of_work)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Table] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Address] = @Original_Address) AND ([Phone Number] = @Original_Phone_Number) AND ([All tables] = @Original_All_tables) AND ([Free tables] = @Original_Free_tables) AND ([Rating] = @Original_Rating) AND ([Hours of work] = @Original_Hours_of_work))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_All_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "All tables", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Free_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Free tables", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Hours_of_work", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hours of work", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hours_of_work", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hours of work", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Table] ([Id], [Name], [Address], [Phone Number], [Free tables], [Rating], [Comments], [Hours of work]) VALUES (@Id, @Name, @Address, @Phone_Number, @Free_tables, @Rating, @Comments, @Hours_of_work);
-SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hours of work] FROM [Table] WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Table] ([Id], [Name], [Address], [Phone Number], [All tables], [Free tables], [Rating], [Comments], [Hours of work]) VALUES (@Id, @Name, @Address, @Phone_Number, @All_tables, @Free_tables, @Rating, @Comments, @Hours_of_work);
+SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, Comments, [Hours of work] FROM [Table] WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@All_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "All tables", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Free_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Free tables", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comments", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comments", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hours_of_work", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hours of work", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Table] SET [Id] = @Id, [Name] = @Name, [Address] = @Address, [Phone Number] = @Phone_Number, [Free tables] = @Free_tables, [Rating] = @Rating, [Comments] = @Comments, [Hours of work] = @Hours_of_work WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Address] = @Original_Address) AND ([Phone Number] = @Original_Phone_Number) AND ([Free tables] = @Original_Free_tables) AND ([Rating] = @Original_Rating) AND ((@IsNull_Hours_of_work = 1 AND [Hours of work] IS NULL) OR ([Hours of work] = @Original_Hours_of_work)));
-SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hours of work] FROM [Table] WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Table] SET [Id] = @Id, [Name] = @Name, [Address] = @Address, [Phone Number] = @Phone_Number, [All tables] = @All_tables, [Free tables] = @Free_tables, [Rating] = @Rating, [Comments] = @Comments, [Hours of work] = @Hours_of_work WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Address] = @Original_Address) AND ([Phone Number] = @Original_Phone_Number) AND ([All tables] = @Original_All_tables) AND ([Free tables] = @Original_Free_tables) AND ([Rating] = @Original_Rating) AND ([Hours of work] = @Original_Hours_of_work));
+SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, Comments, [Hours of work] FROM [Table] WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@All_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "All tables", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Free_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Free tables", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comments", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comments", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -977,9 +990,9 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_All_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "All tables", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Free_tables", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Free tables", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Hours_of_work", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hours of work", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hours_of_work", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hours of work", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -996,8 +1009,8 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hours" +
-                " of work] FROM dbo.[Table]";
+            this._commandCollection[0].CommandText = "SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, Co" +
+                "mments, [Hours of work] FROM dbo.[Table]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1058,7 +1071,7 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Id, string Original_Name, string Original_Address, string Original_Phone_Number, int Original_Free_tables, double Original_Rating, string Original_Hours_of_work) {
+        public virtual int Delete(string Original_Id, string Original_Name, string Original_Address, string Original_Phone_Number, int Original_All_tables, int Original_Free_tables, double Original_Rating, string Original_Hours_of_work) {
             if ((Original_Id == null)) {
                 throw new global::System.ArgumentNullException("Original_Id");
             }
@@ -1083,14 +1096,13 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Phone_Number));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Free_tables));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((double)(Original_Rating));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_All_tables));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Free_tables));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((double)(Original_Rating));
             if ((Original_Hours_of_work == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Hours_of_work");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Hours_of_work));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
@@ -1113,7 +1125,7 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Id, string Name, string Address, string Phone_Number, int Free_tables, double Rating, string Comments, string Hours_of_work) {
+        public virtual int Insert(string Id, string Name, string Address, string Phone_Number, int All_tables, int Free_tables, double Rating, string Comments, string Hours_of_work) {
             if ((Id == null)) {
                 throw new global::System.ArgumentNullException("Id");
             }
@@ -1138,19 +1150,20 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Phone_Number));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Free_tables));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((double)(Rating));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(All_tables));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Free_tables));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((double)(Rating));
             if ((Comments == null)) {
                 throw new global::System.ArgumentNullException("Comments");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Comments));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Comments));
             }
             if ((Hours_of_work == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Hours_of_work");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Hours_of_work));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Hours_of_work));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1172,7 +1185,24 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Id, string Name, string Address, string Phone_Number, int Free_tables, double Rating, string Comments, string Hours_of_work, string Original_Id, string Original_Name, string Original_Address, string Original_Phone_Number, int Original_Free_tables, double Original_Rating, string Original_Hours_of_work) {
+        public virtual int Update(
+                    string Id, 
+                    string Name, 
+                    string Address, 
+                    string Phone_Number, 
+                    int All_tables, 
+                    int Free_tables, 
+                    double Rating, 
+                    string Comments, 
+                    string Hours_of_work, 
+                    string Original_Id, 
+                    string Original_Name, 
+                    string Original_Address, 
+                    string Original_Phone_Number, 
+                    int Original_All_tables, 
+                    int Original_Free_tables, 
+                    double Original_Rating, 
+                    string Original_Hours_of_work) {
             if ((Id == null)) {
                 throw new global::System.ArgumentNullException("Id");
             }
@@ -1197,53 +1227,53 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Phone_Number));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Free_tables));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(Rating));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(All_tables));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Free_tables));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Rating));
             if ((Comments == null)) {
                 throw new global::System.ArgumentNullException("Comments");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Comments));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Comments));
             }
             if ((Hours_of_work == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Hours_of_work");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Hours_of_work));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Hours_of_work));
             }
             if ((Original_Id == null)) {
                 throw new global::System.ArgumentNullException("Original_Id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Id));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Id));
             }
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Name));
             }
             if ((Original_Address == null)) {
                 throw new global::System.ArgumentNullException("Original_Address");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Address));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Address));
             }
             if ((Original_Phone_Number == null)) {
                 throw new global::System.ArgumentNullException("Original_Phone_Number");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Phone_Number));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Phone_Number));
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Free_tables));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((double)(Original_Rating));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_All_tables));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Free_tables));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((double)(Original_Rating));
             if ((Original_Hours_of_work == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Hours_of_work");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Hours_of_work));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Hours_of_work));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1265,8 +1295,24 @@ SELECT Id, Name, Address, [Phone Number], [Free tables], Rating, Comments, [Hour
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Address, string Phone_Number, int Free_tables, double Rating, string Comments, string Hours_of_work, string Original_Id, string Original_Name, string Original_Address, string Original_Phone_Number, int Original_Free_tables, double Original_Rating, string Original_Hours_of_work) {
-            return this.Update(Original_Id, Name, Address, Phone_Number, Free_tables, Rating, Comments, Hours_of_work, Original_Id, Original_Name, Original_Address, Original_Phone_Number, Original_Free_tables, Original_Rating, Original_Hours_of_work);
+        public virtual int Update(
+                    string Name, 
+                    string Address, 
+                    string Phone_Number, 
+                    int All_tables, 
+                    int Free_tables, 
+                    double Rating, 
+                    string Comments, 
+                    string Hours_of_work, 
+                    string Original_Id, 
+                    string Original_Name, 
+                    string Original_Address, 
+                    string Original_Phone_Number, 
+                    int Original_All_tables, 
+                    int Original_Free_tables, 
+                    double Original_Rating, 
+                    string Original_Hours_of_work) {
+            return this.Update(Original_Id, Name, Address, Phone_Number, All_tables, Free_tables, Rating, Comments, Hours_of_work, Original_Id, Original_Name, Original_Address, Original_Phone_Number, Original_All_tables, Original_Free_tables, Original_Rating, Original_Hours_of_work);
         }
     }
     
