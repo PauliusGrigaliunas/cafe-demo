@@ -17,10 +17,14 @@ namespace CafeApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
             Application.Run(new MainForm());
 =======
             //Application.Run(new Form1());
 >>>>>>> parent of 7cb6e29... Add registration system
+=======
+            //Application.Run(new Form1());
+>>>>>>> parent of a5623d3... Create a Table
         }
     }
 }
