@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.Label();
+            this.Email = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.CupOfCafe = new System.Windows.Forms.PictureBox();
@@ -47,21 +47,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "El. paštas:";
             // 
-            // label2
+            // Password
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 296);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Slaptažodis:";
+            this.Password.AutoSize = true;
+            this.Password.Location = new System.Drawing.Point(70, 296);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(64, 13);
+            this.Password.TabIndex = 1;
+            this.Password.Text = "Slaptažodis:";
             // 
-            // textBox1
+            // Email
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 263);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 20);
-            this.textBox1.TabIndex = 2;
+            this.Email.Location = new System.Drawing.Point(153, 263);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(196, 20);
+            this.Email.TabIndex = 2;
             // 
             // textBox2
             // 
@@ -72,12 +72,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(193, 338);
+            this.button1.Location = new System.Drawing.Point(164, 328);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Prisijungti";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CupOfCafe
             // 
@@ -98,8 +99,8 @@
             this.Controls.Add(this.CupOfCafe);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Email);
+            this.Controls.Add(this.Password);
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
             this.Text = "Login";
@@ -112,8 +113,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label Password;
+        private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox CupOfCafe;
