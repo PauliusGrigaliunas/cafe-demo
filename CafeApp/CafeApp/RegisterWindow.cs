@@ -70,6 +70,10 @@ namespace CafeApp
                     MessageBox.Show(ex.Message);
                 }
             }
+            else
+            {
+                MessageBox.Show("Your email or password are incorrect, please, check them and try again.");
+            }
         }
 
         private bool IsValidEmail (string email)
