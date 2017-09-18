@@ -1,1 +1,1 @@
-﻿SELECT * FROM CoffeTable;
+﻿SELECT * FROM CaffeTable;

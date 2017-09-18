@@ -24,7 +24,7 @@ namespace CafeApp {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class BookDatabaseDataSet : global::System.Data.DataSet {
         
-        private TableDataTable tableTable;
+        private CaffeTableDataTable tableCaffeTable;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace CafeApp {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Table"] != null)) {
-                    base.Tables.Add(new TableDataTable(ds.Tables["Table"]));
+                if ((ds.Tables["CaffeTable"] != null)) {
+                    base.Tables.Add(new CaffeTableDataTable(ds.Tables["CaffeTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace CafeApp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TableDataTable Table {
+        public CaffeTableDataTable CaffeTable {
             get {
-                return this.tableTable;
+                return this.tableCaffeTable;
             }
         }
         
@@ -152,8 +152,8 @@ namespace CafeApp {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Table"] != null)) {
-                    base.Tables.Add(new TableDataTable(ds.Tables["Table"]));
+                if ((ds.Tables["CaffeTable"] != null)) {
+                    base.Tables.Add(new CaffeTableDataTable(ds.Tables["CaffeTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace CafeApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTable = ((TableDataTable)(base.Tables["Table"]));
+            this.tableCaffeTable = ((CaffeTableDataTable)(base.Tables["CaffeTable"]));
             if ((initTable == true)) {
-                if ((this.tableTable != null)) {
-                    this.tableTable.InitVars();
+                if ((this.tableCaffeTable != null)) {
+                    this.tableCaffeTable.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace CafeApp {
             this.Namespace = "http://tempuri.org/BookDatabaseDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTable = new TableDataTable();
-            base.Tables.Add(this.tableTable);
+            this.tableCaffeTable = new CaffeTableDataTable();
+            base.Tables.Add(this.tableCaffeTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeTable() {
+        private bool ShouldSerializeCaffeTable() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace CafeApp {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void TableRowChangeEventHandler(object sender, TableRowChangeEvent e);
+        public delegate void CaffeTableRowChangeEventHandler(object sender, CaffeTableRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TableDataTable : global::System.Data.TypedTableBase<TableRow> {
+        public partial class CaffeTableDataTable : global::System.Data.TypedTableBase<CaffeTableRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -299,8 +299,8 @@ namespace CafeApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableDataTable() {
-                this.TableName = "Table";
+            public CaffeTableDataTable() {
+                this.TableName = "CaffeTable";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +308,7 @@ namespace CafeApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal TableDataTable(global::System.Data.DataTable table) {
+            internal CaffeTableDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +325,7 @@ namespace CafeApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected TableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CaffeTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -413,34 +413,34 @@ namespace CafeApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRow this[int index] {
+            public CaffeTableRow this[int index] {
                 get {
-                    return ((TableRow)(this.Rows[index]));
+                    return ((CaffeTableRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TableRowChangeEventHandler TableRowChanging;
+            public event CaffeTableRowChangeEventHandler CaffeTableRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TableRowChangeEventHandler TableRowChanged;
+            public event CaffeTableRowChangeEventHandler CaffeTableRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TableRowChangeEventHandler TableRowDeleting;
+            public event CaffeTableRowChangeEventHandler CaffeTableRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TableRowChangeEventHandler TableRowDeleted;
+            public event CaffeTableRowChangeEventHandler CaffeTableRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddTableRow(TableRow row) {
+            public void AddCaffeTableRow(CaffeTableRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRow AddTableRow(string Id, string Name, string Address, string Phone_Number, int All_tables, int Free_tables, double Rating, string Comments, string Hours_of_work) {
-                TableRow rowTableRow = ((TableRow)(this.NewRow()));
+            public CaffeTableRow AddCaffeTableRow(string Id, string Name, string Address, string Phone_Number, int All_tables, int Free_tables, double Rating, string Comments, string Hours_of_work) {
+                CaffeTableRow rowCaffeTableRow = ((CaffeTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Name,
@@ -451,22 +451,22 @@ namespace CafeApp {
                         Rating,
                         Comments,
                         Hours_of_work};
-                rowTableRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTableRow);
-                return rowTableRow;
+                rowCaffeTableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCaffeTableRow);
+                return rowCaffeTableRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRow FindById(string Id) {
-                return ((TableRow)(this.Rows.Find(new object[] {
+            public CaffeTableRow FindById(string Id) {
+                return ((CaffeTableRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TableDataTable cln = ((TableDataTable)(base.Clone()));
+                CaffeTableDataTable cln = ((CaffeTableDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -474,7 +474,7 @@ namespace CafeApp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TableDataTable();
+                return new CaffeTableDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -530,39 +530,32 @@ namespace CafeApp {
                 this.columnComments.MaxLength = 2147483647;
                 this.columnHours_of_work.AllowDBNull = false;
                 this.columnHours_of_work.MaxLength = 50;
-                this.ExtendedProperties.Add("Generator_RowClassName", "TableRow");
-                this.ExtendedProperties.Add("Generator_RowEvArgName", "TableRowChangeEvent");
-                this.ExtendedProperties.Add("Generator_RowEvHandlerName", "TableRowChangeEventHandler");
-                this.ExtendedProperties.Add("Generator_TableClassName", "TableDataTable");
-                this.ExtendedProperties.Add("Generator_TablePropName", "Table");
-                this.ExtendedProperties.Add("Generator_TableVarName", "tableTable");
-                this.ExtendedProperties.Add("Generator_UserTableName", "Table");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRow NewTableRow() {
-                return ((TableRow)(this.NewRow()));
+            public CaffeTableRow NewCaffeTableRow() {
+                return ((CaffeTableRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TableRow(builder);
+                return new CaffeTableRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TableRow);
+                return typeof(CaffeTableRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TableRowChanged != null)) {
-                    this.TableRowChanged(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.CaffeTableRowChanged != null)) {
+                    this.CaffeTableRowChanged(this, new CaffeTableRowChangeEvent(((CaffeTableRow)(e.Row)), e.Action));
                 }
             }
             
@@ -570,8 +563,8 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TableRowChanging != null)) {
-                    this.TableRowChanging(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.CaffeTableRowChanging != null)) {
+                    this.CaffeTableRowChanging(this, new CaffeTableRowChangeEvent(((CaffeTableRow)(e.Row)), e.Action));
                 }
             }
             
@@ -579,8 +572,8 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TableRowDeleted != null)) {
-                    this.TableRowDeleted(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.CaffeTableRowDeleted != null)) {
+                    this.CaffeTableRowDeleted(this, new CaffeTableRowChangeEvent(((CaffeTableRow)(e.Row)), e.Action));
                 }
             }
             
@@ -588,14 +581,14 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TableRowDeleting != null)) {
-                    this.TableRowDeleting(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.CaffeTableRowDeleting != null)) {
+                    this.CaffeTableRowDeleting(this, new CaffeTableRowChangeEvent(((CaffeTableRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveTableRow(TableRow row) {
+            public void RemoveCaffeTableRow(CaffeTableRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -622,7 +615,7 @@ namespace CafeApp {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TableDataTable";
+                attribute2.FixedValue = "CaffeTableDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -666,25 +659,25 @@ namespace CafeApp {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TableRow : global::System.Data.DataRow {
+        public partial class CaffeTableRow : global::System.Data.DataRow {
             
-            private TableDataTable tableTable;
+            private CaffeTableDataTable tableCaffeTable;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal TableRow(global::System.Data.DataRowBuilder rb) : 
+            internal CaffeTableRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTable = ((TableDataTable)(this.Table));
+                this.tableCaffeTable = ((CaffeTableDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Id {
                 get {
-                    return ((string)(this[this.tableTable.IdColumn]));
+                    return ((string)(this[this.tableCaffeTable.IdColumn]));
                 }
                 set {
-                    this[this.tableTable.IdColumn] = value;
+                    this[this.tableCaffeTable.IdColumn] = value;
                 }
             }
             
@@ -692,10 +685,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Name {
                 get {
-                    return ((string)(this[this.tableTable.NameColumn]));
+                    return ((string)(this[this.tableCaffeTable.NameColumn]));
                 }
                 set {
-                    this[this.tableTable.NameColumn] = value;
+                    this[this.tableCaffeTable.NameColumn] = value;
                 }
             }
             
@@ -703,10 +696,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Address {
                 get {
-                    return ((string)(this[this.tableTable.AddressColumn]));
+                    return ((string)(this[this.tableCaffeTable.AddressColumn]));
                 }
                 set {
-                    this[this.tableTable.AddressColumn] = value;
+                    this[this.tableCaffeTable.AddressColumn] = value;
                 }
             }
             
@@ -714,10 +707,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Phone_Number {
                 get {
-                    return ((string)(this[this.tableTable.Phone_NumberColumn]));
+                    return ((string)(this[this.tableCaffeTable.Phone_NumberColumn]));
                 }
                 set {
-                    this[this.tableTable.Phone_NumberColumn] = value;
+                    this[this.tableCaffeTable.Phone_NumberColumn] = value;
                 }
             }
             
@@ -725,10 +718,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int All_tables {
                 get {
-                    return ((int)(this[this.tableTable.All_tablesColumn]));
+                    return ((int)(this[this.tableCaffeTable.All_tablesColumn]));
                 }
                 set {
-                    this[this.tableTable.All_tablesColumn] = value;
+                    this[this.tableCaffeTable.All_tablesColumn] = value;
                 }
             }
             
@@ -736,10 +729,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int Free_tables {
                 get {
-                    return ((int)(this[this.tableTable.Free_tablesColumn]));
+                    return ((int)(this[this.tableCaffeTable.Free_tablesColumn]));
                 }
                 set {
-                    this[this.tableTable.Free_tablesColumn] = value;
+                    this[this.tableCaffeTable.Free_tablesColumn] = value;
                 }
             }
             
@@ -747,10 +740,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public double Rating {
                 get {
-                    return ((double)(this[this.tableTable.RatingColumn]));
+                    return ((double)(this[this.tableCaffeTable.RatingColumn]));
                 }
                 set {
-                    this[this.tableTable.RatingColumn] = value;
+                    this[this.tableCaffeTable.RatingColumn] = value;
                 }
             }
             
@@ -758,10 +751,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Comments {
                 get {
-                    return ((string)(this[this.tableTable.CommentsColumn]));
+                    return ((string)(this[this.tableCaffeTable.CommentsColumn]));
                 }
                 set {
-                    this[this.tableTable.CommentsColumn] = value;
+                    this[this.tableCaffeTable.CommentsColumn] = value;
                 }
             }
             
@@ -769,10 +762,10 @@ namespace CafeApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Hours_of_work {
                 get {
-                    return ((string)(this[this.tableTable.Hours_of_workColumn]));
+                    return ((string)(this[this.tableCaffeTable.Hours_of_workColumn]));
                 }
                 set {
-                    this[this.tableTable.Hours_of_workColumn] = value;
+                    this[this.tableCaffeTable.Hours_of_workColumn] = value;
                 }
             }
         }
@@ -781,22 +774,22 @@ namespace CafeApp {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class TableRowChangeEvent : global::System.EventArgs {
+        public class CaffeTableRowChangeEvent : global::System.EventArgs {
             
-            private TableRow eventRow;
+            private CaffeTableRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRowChangeEvent(TableRow row, global::System.Data.DataRowAction action) {
+            public CaffeTableRowChangeEvent(CaffeTableRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TableRow Row {
+            public CaffeTableRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -824,7 +817,7 @@ namespace CafeApp.BookDatabaseDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TableTableAdapter : global::System.ComponentModel.Component {
+    public partial class CaffeTableTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -838,7 +831,7 @@ namespace CafeApp.BookDatabaseDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public TableTableAdapter() {
+        public CaffeTableTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -935,7 +928,7 @@ namespace CafeApp.BookDatabaseDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Table";
+            tableMapping.DataSetTable = "CaffeTable";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Address", "Address");
@@ -1018,7 +1011,7 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BookDatabaseDataSet.TableDataTable dataTable) {
+        public virtual int Fill(BookDatabaseDataSet.CaffeTableDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1031,9 +1024,9 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BookDatabaseDataSet.TableDataTable GetData() {
+        public virtual BookDatabaseDataSet.CaffeTableDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BookDatabaseDataSet.TableDataTable dataTable = new BookDatabaseDataSet.TableDataTable();
+            BookDatabaseDataSet.CaffeTableDataTable dataTable = new BookDatabaseDataSet.CaffeTableDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1041,7 +1034,7 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BookDatabaseDataSet.TableDataTable dataTable) {
+        public virtual int Update(BookDatabaseDataSet.CaffeTableDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1049,7 +1042,7 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(BookDatabaseDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Table");
+            return this.Adapter.Update(dataSet, "CaffeTable");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1328,7 +1321,7 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         
         private UpdateOrderOption _updateOrder;
         
-        private TableTableAdapter _tableTableAdapter;
+        private CaffeTableTableAdapter _caffeTableTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1350,12 +1343,12 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public TableTableAdapter TableTableAdapter {
+        public CaffeTableTableAdapter CaffeTableTableAdapter {
             get {
-                return this._tableTableAdapter;
+                return this._caffeTableTableAdapter;
             }
             set {
-                this._tableTableAdapter = value;
+                this._caffeTableTableAdapter = value;
             }
         }
         
@@ -1378,9 +1371,9 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tableTableAdapter != null) 
-                            && (this._tableTableAdapter.Connection != null))) {
-                    return this._tableTableAdapter.Connection;
+                if (((this._caffeTableTableAdapter != null) 
+                            && (this._caffeTableTableAdapter.Connection != null))) {
+                    return this._caffeTableTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1395,7 +1388,7 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tableTableAdapter != null)) {
+                if ((this._caffeTableTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1409,12 +1402,12 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(BookDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._caffeTableTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CaffeTable.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(updatedRows));
+                    result = (result + this._caffeTableTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1428,11 +1421,11 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(BookDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._caffeTableTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CaffeTable.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(addedRows));
+                    result = (result + this._caffeTableTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1446,11 +1439,11 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(BookDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._caffeTableTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CaffeTable.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(deletedRows));
+                    result = (result + this._caffeTableTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1493,8 +1486,8 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._tableTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tableTableAdapter.Connection) == false))) {
+            if (((this._caffeTableTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._caffeTableTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1530,13 +1523,13 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tableTableAdapter != null)) {
-                    revertConnections.Add(this._tableTableAdapter, this._tableTableAdapter.Connection);
-                    this._tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tableTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tableTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tableTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tableTableAdapter.Adapter);
+                if ((this._caffeTableTableAdapter != null)) {
+                    revertConnections.Add(this._caffeTableTableAdapter, this._caffeTableTableAdapter.Connection);
+                    this._caffeTableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._caffeTableTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._caffeTableTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._caffeTableTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._caffeTableTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1597,9 +1590,9 @@ SELECT Id, Name, Address, [Phone Number], [All tables], [Free tables], Rating, C
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._tableTableAdapter != null)) {
-                    this._tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tableTableAdapter]));
-                    this._tableTableAdapter.Transaction = null;
+                if ((this._caffeTableTableAdapter != null)) {
+                    this._caffeTableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._caffeTableTableAdapter]));
+                    this._caffeTableTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
