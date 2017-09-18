@@ -6,7 +6,7 @@ using System.Drawing;
 
 public class Kavine
 {
-    public string _searchCode { get; private set; } //read-only outside of the class
+    public string _Id { get; private set; } //read-only outside of the class
     public string _name;
     public string _address;
     public string _description;
@@ -16,34 +16,24 @@ public class Kavine
     public int _tableCount;
     public int availableTables;
 
+    //Kavine to Push to SQL
     public Kavine(string name, string address, int tableCount)
     {
         //TODO add checking if string != "", tableCount < 0
         _name = name;
         _address = address;
         _tableCount = tableCount;
-        //_mainImage = some stock image
-        GenerateAndSet_searchCode();
+        _Id = generateId(); //UNDONE Replace search code with a method that gets a new Id based on a SQL table
     }
 
-    private void GenerateAndSet_searchCode()
+    private string generateId()
     {
-        string namePart;
-        if (_name.Length > 2)                   //jei vardas bent 3 raides
-        {                                       //paima 3 raides i _searchCode
-            namePart = _name.Substring(0, 3);
-            namePart = namePart.ToUpper();
-        }
-        else                                    //kitu atveju sugeneruoja random 3 raides
-        {
-            namePart = RandomTextString(3);
-        }
-
-        string numberPart = RandomNumberString(3);
-
-        _searchCode = namePart + "-" + numberPart;
+        string generatedId = "";
+        //TODO A method to get an Id for a newly registered Kavine
+        return generatedId;
     }
 
+    //****** DEPRECATED (useless, but still working functions)
     static string RandomNumberString(int length)
     {
         Random random = new Random();
@@ -61,4 +51,5 @@ public class Kavine
         return new string(Enumerable.Repeat(chars, length)
           .Select(s => s[random.Next(s.Length)]).ToArray());
     }
+    //*******************
 }

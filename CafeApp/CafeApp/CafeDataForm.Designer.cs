@@ -83,9 +83,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 127);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 13);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Assigned search code:";
+            this.label4.Text = "Assigned Id:";
             // 
             // label5
             // 

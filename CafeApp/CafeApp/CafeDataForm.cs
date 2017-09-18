@@ -30,7 +30,7 @@ namespace CafeApp
 
             name.Text = testCafe._name;
             address.Text = testCafe._address;
-            searchCodeBox.Text = testCafe._searchCode;
+            searchCodeBox.Text = testCafe._Id;
             number.Text = testCafe._phoneNumber;
             label11.Text = testCafe._tableCount.ToString();
         }
