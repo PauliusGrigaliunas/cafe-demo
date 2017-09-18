@@ -10,9 +10,11 @@ namespace CafeApp
     {
         /// <summary>
         /// Kavines objekto sukūrimo - push'inimo į DB formos paleidimas
+        /// All code should be commented out on main
         /// -K.S. 
         /// </summary>
-        /*[STAThread]
+        /*
+        [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -20,5 +22,6 @@ namespace CafeApp
             Application.Run(new CafeDataForm());
         }
         */
+        
     }
 }
