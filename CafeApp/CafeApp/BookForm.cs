@@ -47,8 +47,8 @@ namespace CafeApp
 
                 
 
-                listCafe.DisplayMember = "Name";
-                listCafe.ValueMember = "Id";
+                listCafe.DisplayMember = "Id";
+                listCafe.ValueMember = "Name";
                 listCafe.DataSource = cafeTable;
 
 
