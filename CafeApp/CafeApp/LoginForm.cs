@@ -17,6 +17,7 @@ namespace CafeApp
         public LoginForm()
         {
             InitializeComponent();
+            textBox2.PasswordChar = '*';
         }
         string msg;
         private void button1_Click(object sender, EventArgs e)
@@ -47,6 +48,13 @@ namespace CafeApp
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Register_Click(object sender, EventArgs e)
+        {
+            RegisterWindow reg = new RegisterWindow();
+            reg.ShowDialog();
+
         }
     }
 }
