@@ -27,7 +27,7 @@ namespace CafeApp
                 connect.Open();                                                //prisijungiam prie db
                 SqlCommand cmd = connect.CreateCommand();                      // sukuriam komanda
                 cmd.CommandType = CommandType.Text;                             //nustatom komanda teksto tipo
-                cmd.CommandText = "SELECT * FROM Users WHERE Email=" + Email.Text + " AND Password=" + Password.Text + ";";                        // parenkam visa lentele 
+                cmd.CommandText = "SELECT * FROM Users WHERE Email='"+Email.Text+"'AND Password='"+textBox2.Text+"'";                        // parenkam visa lentele 
                 cmd.ExecuteNonQuery();                                           //vykdom komandine cmd eilute
                 DataTable dt = new DataTable();                                //sukuriam saugojimui duomenu lentele
                 SqlDataAdapter da = new SqlDataAdapter(cmd);                   //sukuriam sql duomenu adapteri, kurie jau yra isspausdinti cmd                           
