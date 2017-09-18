@@ -6,17 +6,22 @@ using System.Windows.Forms;
 
 namespace CafeApp
 {
-    static class Program
+    static class KarolisMain
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Kavines objekto sukūrimo - push'inimo į DB formos paleidimas
+        /// All code should be commented out on main
+        /// -K.S. 
         /// </summary>
+        /*
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new CafeDataForm());
         }
+        */
+        
     }
 }
