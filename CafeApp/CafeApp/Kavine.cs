@@ -15,6 +15,8 @@ public class Kavine
     //protected var locationVar; //placeholder if we decide to do anything with GoogleMaps
     public int _tableCount;
     public int availableTables;
+    public float rating;
+    public string workingHours;
 
     //Kavine to Push to SQL
     public Kavine(string name, string address, int tableCount)
