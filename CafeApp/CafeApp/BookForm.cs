@@ -18,6 +18,8 @@ namespace CafeApp
         SqlConnection connection; // Connection to database
         SqlDataReader dr;
 
+        public String id;
+
         public BookForm()
         {
             InitializeComponent();
@@ -54,7 +56,8 @@ namespace CafeApp
 
                     while (dr.Read())
                     {
-                        ListViewItem item = new ListViewItem(dr["Name"].ToString());                 
+                        ListViewItem item = new ListViewItem(dr["Id"].ToString()); 
+                        item.SubItems.Add(dr["Name"].ToString());
                         item.SubItems.Add(dr["Address"].ToString());
                         item.SubItems.Add(dr["Phone Number"].ToString());
                         item.SubItems.Add(dr["Email"].ToString());
@@ -77,7 +80,11 @@ namespace CafeApp
 
         private void listViewCafe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show("aha");
+            //var num = listViewCafe.SelectedIndices;           
+            //MessageBox.Show(listViewCafe.SelectedItems.Text);
+            id = listViewCafe.SelectedItems[0].SubItems[0].Text;
+            MessageBox.Show(id);
+
         }
     }
 }

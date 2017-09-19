@@ -38,6 +38,8 @@
             this.columnFreeTables = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnComments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // labelCafe
@@ -53,6 +55,7 @@
             // listViewCafe
             // 
             this.listViewCafe.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnId,
             this.columnName,
             this.columnAddress,
             this.columnPhoneNumber,
@@ -60,7 +63,8 @@
             this.columnAllTables,
             this.columnFreeTables,
             this.columnRating,
-            this.columnComments});
+            this.columnComments,
+            this.columnHeader1});
             this.listViewCafe.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listViewCafe.Location = new System.Drawing.Point(0, 41);
             this.listViewCafe.Name = "listViewCafe";
@@ -107,6 +111,11 @@
             this.columnComments.Text = "Comments";
             this.columnComments.Width = 300;
             // 
+            // columnId
+            // 
+            this.columnId.Text = "ID";
+            this.columnId.Width = 40;
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -134,5 +143,7 @@
         private System.Windows.Forms.ColumnHeader columnFreeTables;
         private System.Windows.Forms.ColumnHeader columnRating;
         private System.Windows.Forms.ColumnHeader columnComments;
+        private System.Windows.Forms.ColumnHeader columnId;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
