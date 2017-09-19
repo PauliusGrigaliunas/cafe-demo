@@ -42,14 +42,19 @@ namespace CafeApp
             using (connection = new SqlConnection(ConnectionString))
             using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM CaffeTable", connection)) {
 
+
                 DataTable cafeTable = new DataTable();
                 adapter.Fill(cafeTable);
 
+                dataGridView1.DataSource = cafeTable;
                 
 
-                listCafe.DisplayMember = "Name";
-                listCafe.ValueMember = "Email";
-                listCafe.DataSource = cafeTable;
+                //
+                //SqlDataReader dr = 
+
+                //listCafe.DisplayMember = "Name";
+                //listCafe.ValueMember = "Email";
+                //listCafe.DataSource = cafeTable;
 
 
             }
@@ -61,7 +66,12 @@ namespace CafeApp
 
         private void listCafe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(listCafe.SelectedValue.ToString());
+            //MessageBox.Show(listCafe.SelectedValue.ToString());
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
