@@ -19,7 +19,6 @@ namespace CafeApp
             InitializeComponent();
             textBox2.PasswordChar = '*';
         }
-        string msg;
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -35,8 +34,9 @@ namespace CafeApp
                 int i = dt.Rows.Count;                                          //surandame ar yra nors viena eilute su tokiais duomenim
                 if ( i == 1 )                                             //jei yra 1, tada cool, prisijungta sekminga
                 {
-                    msg = "Sveiki prisijungę kaip " + Email.Text;
-                    MessageBox.Show(msg);
+                    MainMenu main = new MainMenu(Email.Text);
+                    main.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -44,7 +44,7 @@ namespace CafeApp
                     textBox2.Text = null;
                     MessageBox.Show("Atsiprašome, bet el. pašto adresas arba slaptažodis neteisingi!");
                 }
-                connect.Close();                                               //atsijungiam nuo db
+                connect.Close();                  //atsijungiam nuo db
             }
             catch ( Exception ex )
             {
