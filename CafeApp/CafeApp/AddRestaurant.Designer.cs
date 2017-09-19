@@ -37,6 +37,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.AddressBox = new System.Windows.Forms.TextBox();
+            this.TablesBox = new System.Windows.Forms.TextBox();
+            this.PhoneBox = new System.Windows.Forms.TextBox();
+            this.WorkdaysBox = new System.Windows.Forms.TextBox();
+            this.SaturdayBox = new System.Windows.Forms.TextBox();
+            this.SundayBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.AddButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -93,11 +103,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label6.Location = new System.Drawing.Point(170, 182);
+            this.label6.Location = new System.Drawing.Point(167, 185);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 17);
+            this.label6.Size = new System.Drawing.Size(256, 17);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Working hours:*";
+            this.label6.Text = "Working hours:*(format: hh:mm-hh:mm)";
             // 
             // label7
             // 
@@ -113,7 +123,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label8.Location = new System.Drawing.Point(186, 217);
+            this.label8.Location = new System.Drawing.Point(195, 217);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 7;
@@ -129,12 +139,99 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Sunday";
             // 
+            // NameBox
+            // 
+            this.NameBox.Location = new System.Drawing.Point(170, 70);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(192, 20);
+            this.NameBox.TabIndex = 9;
+            // 
+            // AddressBox
+            // 
+            this.AddressBox.Location = new System.Drawing.Point(170, 97);
+            this.AddressBox.Name = "AddressBox";
+            this.AddressBox.Size = new System.Drawing.Size(192, 20);
+            this.AddressBox.TabIndex = 10;
+            // 
+            // TablesBox
+            // 
+            this.TablesBox.Location = new System.Drawing.Point(170, 124);
+            this.TablesBox.Name = "TablesBox";
+            this.TablesBox.Size = new System.Drawing.Size(192, 20);
+            this.TablesBox.TabIndex = 11;
+            // 
+            // PhoneBox
+            // 
+            this.PhoneBox.Location = new System.Drawing.Point(170, 152);
+            this.PhoneBox.Name = "PhoneBox";
+            this.PhoneBox.Size = new System.Drawing.Size(192, 20);
+            this.PhoneBox.TabIndex = 12;
+            // 
+            // WorkdaysBox
+            // 
+            this.WorkdaysBox.Location = new System.Drawing.Point(37, 253);
+            this.WorkdaysBox.Name = "WorkdaysBox";
+            this.WorkdaysBox.Size = new System.Drawing.Size(54, 20);
+            this.WorkdaysBox.TabIndex = 13;
+            // 
+            // SaturdayBox
+            // 
+            this.SaturdayBox.Location = new System.Drawing.Point(198, 253);
+            this.SaturdayBox.Name = "SaturdayBox";
+            this.SaturdayBox.Size = new System.Drawing.Size(52, 20);
+            this.SaturdayBox.TabIndex = 14;
+            // 
+            // SundayBox
+            // 
+            this.SundayBox.Location = new System.Drawing.Point(355, 253);
+            this.SundayBox.Name = "SundayBox";
+            this.SundayBox.Size = new System.Drawing.Size(53, 20);
+            this.SundayBox.TabIndex = 15;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 43);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "*neccessary to fill";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(281, 285);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(165, 13);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "(Blank space means do not work)";
+            // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(189, 312);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(90, 23);
+            this.AddButton.TabIndex = 18;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // AddRestaurant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(447, 309);
+            this.ClientSize = new System.Drawing.Size(447, 347);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.SundayBox);
+            this.Controls.Add(this.SaturdayBox);
+            this.Controls.Add(this.WorkdaysBox);
+            this.Controls.Add(this.PhoneBox);
+            this.Controls.Add(this.TablesBox);
+            this.Controls.Add(this.AddressBox);
+            this.Controls.Add(this.NameBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -162,5 +259,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.TextBox AddressBox;
+        private System.Windows.Forms.TextBox TablesBox;
+        private System.Windows.Forms.TextBox PhoneBox;
+        private System.Windows.Forms.TextBox WorkdaysBox;
+        private System.Windows.Forms.TextBox SaturdayBox;
+        private System.Windows.Forms.TextBox SundayBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button AddButton;
     }
 }
