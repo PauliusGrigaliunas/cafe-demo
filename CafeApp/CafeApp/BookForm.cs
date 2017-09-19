@@ -82,8 +82,8 @@ namespace CafeApp
         {
             //var num = listViewCafe.SelectedIndices;           
             //MessageBox.Show(listViewCafe.SelectedItems.Text);
-            id = listViewCafe.SelectedItems[0].SubItems[0].Text;
-            MessageBox.Show(id);
+            var sid = listViewCafe.SelectedItems.ToString();
+            MessageBox.Show(sid.ToString());
 
         }
     }
