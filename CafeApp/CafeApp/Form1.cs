@@ -48,10 +48,11 @@ namespace CafeApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double Latitude = coordinate.Latitude;
-            double Longtitude = coordinate.Longitude;
-            String address = geocoder.ReverseGeocode(new LatLng(Latitude,Longtitude));
-            textBox1.Text =String.Format("Location: "+address);
+            //returns a dictionary of full address
+            var fullAddress = geocoder.ReverseGeocodeComponents(new LatLng(coordinate.Latitude, coordinate.Longitude));
+
+            //prints the city and the country the user is currently in
+            textBox1.Text = String.Format("City: {0} Country {1}", fullAddress["locality"], fullAddress["country"]);
         }
     }
 }
