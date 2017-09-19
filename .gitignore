@@ -214,6 +214,10 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Booking-system
 
 # Business Intelligence projects
 *.rdl.data
