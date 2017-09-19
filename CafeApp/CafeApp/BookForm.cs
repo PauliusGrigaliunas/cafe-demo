@@ -15,11 +15,15 @@ namespace CafeApp
     public partial class BookForm : Form
     {
         String ConnectionString; // String to reach database
-        SqlConnection connection; //
+        SqlConnection connection; // Connection to database
+        SqlDataReader dr;
 
         public BookForm()
         {
             InitializeComponent();
+
+            listViewCafe.View = View.Details; //ability to select row
+            listViewCafe.FullRowSelect = true; //ability to select row
 
             ConnectionString = ConfigurationManager.ConnectionStrings["CafeApp.Properties.Settings.BookDatabaseConnectionString"].ConnectionString;
 
@@ -39,39 +43,41 @@ namespace CafeApp
 
         private void populateCafe() {
 
+
             using (connection = new SqlConnection(ConnectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM CaffeTable", connection)) {
+            using (SqlCommand command = new SqlCommand("SELECT * FROM CaffeTable", connection))
+            {
+                try
+                {
+                    connection.Open();
+                    dr = command.ExecuteReader();
 
+                    while (dr.Read())
+                    {
+                        ListViewItem item = new ListViewItem(dr["Name"].ToString());                 
+                        item.SubItems.Add(dr["Address"].ToString());
+                        item.SubItems.Add(dr["Phone Number"].ToString());
+                        item.SubItems.Add(dr["Email"].ToString());
+                        item.SubItems.Add(dr["Free tables"].ToString());
+                        item.SubItems.Add(dr["All tables"].ToString());
+                        item.SubItems.Add(dr["Rating"].ToString());
+                        item.SubItems.Add(dr["Comments"].ToString());
+                        listViewCafe.Items.Add(item);
+                    }
 
-                DataTable cafeTable = new DataTable();
-                adapter.Fill(cafeTable);
+                    connection.Close();
+                }
 
-                dataGridView1.DataSource = cafeTable;
-                
-
-                //
-                //SqlDataReader dr = 
-
-                //listCafe.DisplayMember = "Name";
-                //listCafe.ValueMember = "Email";
-                //listCafe.DataSource = cafeTable;
-
+                catch (Exception ex)
+                {
+                }
 
             }
-
-                    
-
-
         }
 
-        private void listCafe_SelectedIndexChanged(object sender, EventArgs e)
+        private void listViewCafe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(listCafe.SelectedValue.ToString());
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            //MessageBox.Show("aha");
         }
     }
 }

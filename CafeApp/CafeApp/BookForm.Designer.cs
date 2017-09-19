@@ -33,8 +33,11 @@
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnPhoneNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.columnEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAllTables = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnFreeTables = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnComments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // labelCafe
@@ -52,18 +55,25 @@
             this.listViewCafe.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnName,
             this.columnAddress,
-            this.columnPhoneNumber});
-            this.listViewCafe.Location = new System.Drawing.Point(13, 291);
+            this.columnPhoneNumber,
+            this.columnEmail,
+            this.columnAllTables,
+            this.columnFreeTables,
+            this.columnRating,
+            this.columnComments});
+            this.listViewCafe.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listViewCafe.Location = new System.Drawing.Point(0, 41);
             this.listViewCafe.Name = "listViewCafe";
-            this.listViewCafe.Size = new System.Drawing.Size(1034, 276);
+            this.listViewCafe.Size = new System.Drawing.Size(1389, 696);
             this.listViewCafe.TabIndex = 2;
             this.listViewCafe.UseCompatibleStateImageBehavior = false;
             this.listViewCafe.View = System.Windows.Forms.View.Details;
+            this.listViewCafe.SelectedIndexChanged += new System.EventHandler(this.listViewCafe_SelectedIndexChanged);
             // 
             // columnName
             // 
             this.columnName.Text = "Name";
-            this.columnName.Width = 118;
+            this.columnName.Width = 150;
             // 
             // columnAddress
             // 
@@ -75,28 +85,38 @@
             this.columnPhoneNumber.Text = "PhoneNumber";
             this.columnPhoneNumber.Width = 179;
             // 
-            // dataGridView1
+            // columnEmail
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 60);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1034, 209);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.columnEmail.Text = "Email";
+            this.columnEmail.Width = 100;
+            // 
+            // columnAllTables
+            // 
+            this.columnAllTables.Text = "All tables";
+            // 
+            // columnFreeTables
+            // 
+            this.columnFreeTables.Text = "Free tables";
+            // 
+            // columnRating
+            // 
+            this.columnRating.Text = "Rating";
+            // 
+            // columnComments
+            // 
+            this.columnComments.Text = "Comments";
+            this.columnComments.Width = 300;
             // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 737);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1389, 737);
             this.Controls.Add(this.listViewCafe);
             this.Controls.Add(this.labelCafe);
             this.Name = "BookForm";
             this.Text = "BookForm";
             this.Load += new System.EventHandler(this.BookForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,6 +129,10 @@
         private System.Windows.Forms.ColumnHeader columnName;
         private System.Windows.Forms.ColumnHeader columnAddress;
         private System.Windows.Forms.ColumnHeader columnPhoneNumber;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ColumnHeader columnEmail;
+        private System.Windows.Forms.ColumnHeader columnAllTables;
+        private System.Windows.Forms.ColumnHeader columnFreeTables;
+        private System.Windows.Forms.ColumnHeader columnRating;
+        private System.Windows.Forms.ColumnHeader columnComments;
     }
 }
