@@ -15,8 +15,9 @@ namespace CafeApp
         public string password;
         public bool inserted=false;
 
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+@"\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
-       
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Albert\Documents\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
+
+
 
         public RegisterWindow()
         {
@@ -70,6 +71,11 @@ namespace CafeApp
                     MessageBox.Show(ex.Message);
                 }
             }
+            else
+            {
+                MessageBox.Show("Your email or password are incorrect, please, check them and try again.");
+            }
+            this.Close();
         }
 
         private bool IsValidEmail (string email)
