@@ -30,6 +30,7 @@
         {
             this.labelCafe = new System.Windows.Forms.Label();
             this.listViewCafe = new System.Windows.Forms.ListView();
+            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnPhoneNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,8 +39,8 @@
             this.columnFreeTables = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnComments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonOpen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelCafe
@@ -65,14 +66,19 @@
             this.columnRating,
             this.columnComments,
             this.columnHeader1});
-            this.listViewCafe.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listViewCafe.Location = new System.Drawing.Point(0, 41);
+            this.listViewCafe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listViewCafe.Location = new System.Drawing.Point(0, 0);
             this.listViewCafe.Name = "listViewCafe";
-            this.listViewCafe.Size = new System.Drawing.Size(1389, 696);
+            this.listViewCafe.Size = new System.Drawing.Size(1389, 582);
             this.listViewCafe.TabIndex = 2;
             this.listViewCafe.UseCompatibleStateImageBehavior = false;
             this.listViewCafe.View = System.Windows.Forms.View.Details;
             this.listViewCafe.SelectedIndexChanged += new System.EventHandler(this.listViewCafe_SelectedIndexChanged);
+            // 
+            // columnId
+            // 
+            this.columnId.Text = "ID";
+            this.columnId.Width = 40;
             // 
             // columnName
             // 
@@ -111,16 +117,22 @@
             this.columnComments.Text = "Comments";
             this.columnComments.Width = 300;
             // 
-            // columnId
+            // buttonOpen
             // 
-            this.columnId.Text = "ID";
-            this.columnId.Width = 40;
+            this.buttonOpen.Location = new System.Drawing.Point(1106, 635);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(271, 61);
+            this.buttonOpen.TabIndex = 3;
+            this.buttonOpen.Text = "Open";
+            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1389, 737);
+            this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.listViewCafe);
             this.Controls.Add(this.labelCafe);
             this.Name = "BookForm";
@@ -145,5 +157,6 @@
         private System.Windows.Forms.ColumnHeader columnComments;
         private System.Windows.Forms.ColumnHeader columnId;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Button buttonOpen;
     }
 }

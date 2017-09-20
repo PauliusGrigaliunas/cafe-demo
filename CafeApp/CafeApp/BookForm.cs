@@ -80,10 +80,16 @@ namespace CafeApp
 
         private void listViewCafe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //var num = listViewCafe.SelectedIndices;           
-            //MessageBox.Show(listViewCafe.SelectedItems.Text);
-            var sid = listViewCafe.SelectedItems.ToString();
-            MessageBox.Show(sid.ToString());
+
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+
+            // Karoliui!
+            id = listViewCafe.SelectedItems[0].Text;  //id (String)
+            MessageBox.Show(id);
+            int idInt = Convert.ToInt32(id); // idInt (int) turėtų sutapt su Id iš duomenų bazės
 
         }
     }
