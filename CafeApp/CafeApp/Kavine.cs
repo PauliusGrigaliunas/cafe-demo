@@ -18,7 +18,7 @@ public class Kavine
     public float rating;
     public string workingHours;
 
-    //Kavine to Push to SQL
+    //Kavine constructor to Push to SQL
     public Kavine(string name, string address, int tableCount)
     {
         //TODO add checking if string != "", tableCount < 0
@@ -26,6 +26,13 @@ public class Kavine
         _address = address;
         _tableCount = tableCount;
         _Id = generateId(); //UNDONE Replace search code with a method that gets a new Id based on a SQL table
+    }
+
+    //Kavine constructor to POP from SQL
+    public Kavine(string Id)
+    {
+        _Id = Id;
+        //UNDONE SELECT all the data using Id
     }
 
     private string generateId()
