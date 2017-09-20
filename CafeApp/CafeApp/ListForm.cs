@@ -29,8 +29,6 @@ namespace CafeApp
 
             ConnectionString = ConfigurationManager.ConnectionStrings["CafeApp.Properties.Settings.BookDatabaseConnectionString"].ConnectionString;
 
-
-
         }
 
         private void label1_Click(object sender, EventArgs e)

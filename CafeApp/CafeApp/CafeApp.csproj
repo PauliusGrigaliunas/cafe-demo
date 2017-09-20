@@ -108,6 +108,9 @@
     <EmbeddedResource Include="AddRestaurant.resx">
       <DependentUpon>AddRestaurant.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CafeDataForm.resx">
+      <DependentUpon>CafeDataForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
     </EmbeddedResource>

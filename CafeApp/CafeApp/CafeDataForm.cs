@@ -46,5 +46,10 @@ namespace CafeApp
         {
             
         }
+
+        private void name_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
