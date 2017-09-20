@@ -70,6 +70,12 @@
     <Compile Include="AddRestaurant.Designer.cs">
       <DependentUpon>AddRestaurant.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListForm.Designer.cs">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

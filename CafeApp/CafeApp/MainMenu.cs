@@ -29,12 +29,19 @@ namespace CafeApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Still in development");
+            ListForm listForm = new ListForm();
+            listForm.Show();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
