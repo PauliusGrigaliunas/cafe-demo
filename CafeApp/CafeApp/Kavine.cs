@@ -28,13 +28,6 @@ public class Kavine
         _Id = generateId(); //UNDONE Replace search code with a method that gets a new Id based on a SQL table
     }
 
-    //Kavine to POP from SQL
-    public Kavine(string Id)
-    {
-        _Id = Id;
-        //UNDONE SELECT all the data using Id
-    }
-
     private string generateId()
     {
         string generatedId = "";
