@@ -18,7 +18,7 @@ namespace CafeApp
         SqlConnection connection; // Connection to database
         SqlDataReader dr;
 
-        public String id;
+        public int id;
 
         public BookForm()
         {
@@ -87,9 +87,9 @@ namespace CafeApp
         {
 
             // Karoliui!
-            id = listViewCafe.SelectedItems[0].Text;  //id (String)
-            MessageBox.Show(id);
-            int idInt = Convert.ToInt32(id); // idInt (int) turėtų sutapt su Id iš duomenų bazės
+            String idString = listViewCafe.SelectedItems[0].Text;  //id (String)
+            MessageBox.Show(idString);
+            id = Convert.ToInt32(idString); // idInt (int) turėtų sutapt su Id iš duomenų bazės
 
         }
     }
