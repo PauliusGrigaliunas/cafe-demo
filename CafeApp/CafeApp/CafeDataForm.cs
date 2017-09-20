@@ -7,39 +7,88 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CafeApp
 {
     public partial class CafeDataForm : Form
     {
-        public CafeDataForm()
+        public int id;
+        SqlConnection connect = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;Integrated Security = true;AttachDbFilename = C:\\Users\\Mode\\Documents\\GitHub\\cafe-demo\\cafe-demo\\CafeApp\\CafeApp\\bin\\Debug\\Database1.mdf;");
+
+        public CafeDataForm(int id)
         {
+            this.id = id;
             InitializeComponent();
+            ShowInfo(id);
         }
+        private void ShowInfo(int id)
+        {
+            try
+            {
+                connect.Open();
+                SqlCommand cmd = connect.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM Restaurants WHERE ID='"+id+"'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                searchCodeBox.Text = dt.Rows[0][0].ToString();
+                name.Text = dt.Rows[0][1].ToString();
+                address.Text = dt.Rows[0][2].ToString();
+                label11.Text = dt.Rows[0][3].ToString();
+                number.Text = dt.Rows[0][4].ToString();
+                connect.Close();
+            }
+            catch( Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string name = textBox1.Text;
+            string address = textBox2.Text;
+            int tables = int.Parse(textBox3.Text);
+            try
+            {
+                connect.Open();
+                SqlCommand cmd = connect.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "UPDATE Restaurants SET Name='"+name+"',Address='"+address+"',Tables='"+tables+"' WHERE ID='"+id+"'";
+                cmd.ExecuteNonQuery();
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            MessageBox.Show("Changed successfully!");
+            this.Close();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Karolio chuj znaet kas :D prispaudinejo turbut
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Create cafe object
-            int tableInt = Int32.Parse(textBox3.Text);
-            Kavine testCafe = new Kavine(textBox1.Text, textBox2.Text, tableInt);
-
-            name.Text = testCafe._name;
-            address.Text = testCafe._address;
-            searchCodeBox.Text = testCafe._Id;
-            number.Text = testCafe._phoneNumber;
-            label11.Text = testCafe._tableCount.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Push cafe object to DB
-            PushLabel.Text = "Pushed to SQL";
-            //TODO actual pushing into SQL
         }
 
         private void CafeDataForm_Load(object sender, EventArgs e)

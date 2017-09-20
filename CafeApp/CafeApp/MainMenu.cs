@@ -30,8 +30,7 @@ namespace CafeApp
         private void button2_Click(object sender, EventArgs e)
         {
             ListForm listForm = new ListForm();
-            listForm.Show();
-            this.Hide();
+            listForm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

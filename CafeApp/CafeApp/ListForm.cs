@@ -14,8 +14,8 @@ namespace CafeApp
 {
     public partial class ListForm : Form
     {
-        String ConnectionString; // String to reach database
-        SqlConnection connection; // Connection to database
+        SqlConnection connection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;Integrated Security = true;AttachDbFilename = C:\\Users\\Mode\\Documents\\GitHub\\cafe-demo\\cafe-demo\\CafeApp\\CafeApp\\bin\\Debug\\Database1.mdf;");
+
         SqlDataReader dr;
 
         public int id;
@@ -26,8 +26,6 @@ namespace CafeApp
 
             listViewCafe.View = View.Details; //ability to select row
             listViewCafe.FullRowSelect = true; //ability to select row
-
-            ConnectionString = ConfigurationManager.ConnectionStrings["CafeApp.Properties.Settings.BookDatabaseConnectionString"].ConnectionString;
 
         }
 
@@ -45,9 +43,9 @@ namespace CafeApp
         private void populateCafe()
         {
 
-            
-            using (connection = new SqlConnection(ConnectionString))
-            using (SqlCommand command = new SqlCommand("SELECT * FROM Restaurants", connection))
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM Restaurants";   
             {
                 try
                 {
@@ -82,9 +80,15 @@ namespace CafeApp
 
             // Karoliui!
             String idString = listViewCafe.SelectedItems[0].Text;  //id (String)
-            MessageBox.Show(idString);
             id = Convert.ToInt32(idString); // idInt (int) turėtų sutapt su Id iš duomenų bazės
+            CafeDataForm cafe = new CafeDataForm(id);
+            cafe.Show();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
