@@ -59,12 +59,13 @@ namespace CafeApp
                 cmd.CommandText = "UPDATE Restaurants SET Name='"+name+"',Address='"+address+"',Tables='"+tables+"' WHERE ID='"+id+"'";
                 cmd.ExecuteNonQuery();
                 connect.Close();
+                MessageBox.Show("Changed successfully!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            MessageBox.Show("Changed successfully!");
+
             this.Close();
         }
 

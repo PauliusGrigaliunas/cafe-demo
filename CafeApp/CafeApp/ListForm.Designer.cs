@@ -41,7 +41,7 @@
             this.columnID,
             this.columnName});
             this.listViewCafe.Location = new System.Drawing.Point(9, 10);
-            this.listViewCafe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewCafe.Margin = new System.Windows.Forms.Padding(2);
             this.listViewCafe.Name = "listViewCafe";
             this.listViewCafe.Size = new System.Drawing.Size(895, 369);
             this.listViewCafe.TabIndex = 0;
@@ -59,11 +59,11 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(710, 405);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(193, 42);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Open";
+            this.button1.Text = "Show Info";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -85,7 +85,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listViewCafe);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ListForm";
             this.Text = "ListForm";
             this.Load += new System.EventHandler(this.ListForm_Load);
