@@ -49,7 +49,7 @@ namespace CafeApp
 
             
             using (connection = new SqlConnection(ConnectionString))
-            using (SqlCommand command = new SqlCommand("SELECT * FROM CaffeTable", connection))
+            using (SqlCommand command = new SqlCommand("SELECT * FROM Restaurants", connection))
             {
                 try
                 {
@@ -60,13 +60,7 @@ namespace CafeApp
                     {
                         ListViewItem item = new ListViewItem(dr["Id"].ToString());
                         item.SubItems.Add(dr["Name"].ToString());
-                        item.SubItems.Add(dr["Address"].ToString());
-                        item.SubItems.Add(dr["Phone Number"].ToString());
-                        item.SubItems.Add(dr["Email"].ToString());
-                        item.SubItems.Add(dr["Free tables"].ToString());
-                        item.SubItems.Add(dr["All tables"].ToString());
-                        item.SubItems.Add(dr["Rating"].ToString());
-                        item.SubItems.Add(dr["Comments"].ToString());
+
                         listViewCafe.Items.Add(item);
                     }
 
