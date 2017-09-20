@@ -73,6 +73,7 @@
             this.Controls.Add(this.listViewCafe);
             this.Name = "ListForm";
             this.Text = "ListForm";
+            this.Load += new System.EventHandler(this.ListForm_Load);
             this.ResumeLayout(false);
 
         }
