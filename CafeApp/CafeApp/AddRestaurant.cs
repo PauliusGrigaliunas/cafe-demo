@@ -23,7 +23,7 @@ namespace CafeApp
         static int id = 0;
         public bool inserted = false;
 
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Albert\Documents\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
 
 
         public AddRestaurant()
