@@ -14,7 +14,7 @@ namespace CafeApp
 {
     public partial class ListForm : Form
     {
-        SqlConnection connection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;Integrated Security = true;AttachDbFilename = C:\\Users\\Mode\\Documents\\GitHub\\cafe-demo\\cafe-demo\\CafeApp\\CafeApp\\bin\\Debug\\Database1.mdf;");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Albert\Documents\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
 
         SqlDataReader dr;
 
@@ -65,6 +65,11 @@ namespace CafeApp
 
                 catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
 
             }
