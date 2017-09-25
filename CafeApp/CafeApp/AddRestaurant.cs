@@ -20,13 +20,17 @@ namespace CafeApp
         string workdays;
         string saturday;
         string sunday;
-        static int id = 0;
+        static int id = 1;
         public bool inserted = false;
+        string email;
 
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Albert\Documents\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
-        public AddRestaurant()
+
+
+        public AddRestaurant( string email )
         {
+            this.email = email;
             InitializeComponent();
         }
 
@@ -54,7 +58,7 @@ namespace CafeApp
                 da.Fill(dt);
                 if ( !CheckIfNameExists(dt, NameBox.Text) && !inserted )
                 {
-                    cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday) VALUES('"+id+"','"+name+"','"+address+"','"+tables+"','"+phone+"','"+workdays+"','"+saturday+"','"+sunday+"')";
+                    cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('"+id+"','"+name+"','"+address+"','"+tables+"','"+phone+"','"+workdays+"','"+saturday+"','"+sunday+"','"+email+"')";
                     cmd.ExecuteNonQuery();
                     inserted = true;
                     MessageBox.Show("Restaurant successfully added!");
@@ -70,6 +74,10 @@ namespace CafeApp
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                connect.Close();
+            }
             this.Close();
         }
         private bool CheckIfNameExists(DataTable dt, string data)
@@ -83,6 +91,11 @@ namespace CafeApp
                 }
             }
             return exist;
+        }
+
+        private void AddRestaurant_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

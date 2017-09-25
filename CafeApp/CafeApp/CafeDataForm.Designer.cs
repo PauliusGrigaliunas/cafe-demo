@@ -39,15 +39,13 @@
             this.searchCodeBox = new System.Windows.Forms.Label();
             this.number = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.PushLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -114,6 +112,7 @@
             this.name.TabIndex = 6;
             this.name.Text = "name";
             this.name.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.name.Click += new System.EventHandler(this.name_Click);
             // 
             // address
             // 
@@ -153,16 +152,6 @@
             this.label11.TabIndex = 10;
             this.label11.Text = "0";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Create a cafe";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
@@ -219,42 +208,28 @@
             this.textBox3.TabIndex = 17;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button2
+            // button1
             // 
-            this.button2.Location = new System.Drawing.Point(157, 370);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Push to DB";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // PushLabel
-            // 
-            this.PushLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PushLabel.AutoSize = true;
-            this.PushLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.PushLabel.ForeColor = System.Drawing.Color.Green;
-            this.PushLabel.Location = new System.Drawing.Point(178, 354);
-            this.PushLabel.Name = "PushLabel";
-            this.PushLabel.Size = new System.Drawing.Size(0, 13);
-            this.PushLabel.TabIndex = 19;
-            this.PushLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button1.Location = new System.Drawing.Point(95, 360);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Change";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CafeDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 405);
-            this.Controls.Add(this.PushLabel);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.number);
             this.Controls.Add(this.searchCodeBox);
@@ -287,14 +262,12 @@
         private System.Windows.Forms.Label searchCodeBox;
         private System.Windows.Forms.Label number;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label PushLabel;
+        private System.Windows.Forms.Button button1;
     }
 }

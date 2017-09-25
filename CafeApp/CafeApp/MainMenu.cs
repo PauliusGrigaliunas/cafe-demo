@@ -12,7 +12,7 @@ namespace CafeApp
 {
     public partial class MainMenu : Form
     {
-        private string email;
+        public string email;
 
         public MainMenu(string email)
         {
@@ -23,18 +23,24 @@ namespace CafeApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddRestaurant add = new AddRestaurant();
+            AddRestaurant add = new AddRestaurant(email);
             add.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Still in development");
+            ListForm listForm = new ListForm(email);
+            listForm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

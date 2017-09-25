@@ -39,9 +39,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label1.Location = new System.Drawing.Point(149, 13);
+            this.label1.Location = new System.Drawing.Point(199, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.Size = new System.Drawing.Size(95, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
@@ -49,17 +50,19 @@
             // 
             this.EmailLabel.AutoSize = true;
             this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.EmailLabel.Location = new System.Drawing.Point(228, 13);
+            this.EmailLabel.Location = new System.Drawing.Point(304, 16);
+            this.EmailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(136, 20);
+            this.EmailLabel.Size = new System.Drawing.Size(170, 25);
             this.EmailLabel.TabIndex = 1;
             this.EmailLabel.Text = "emailas zmogaus!";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(24, 70);
+            this.button1.Location = new System.Drawing.Point(32, 86);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 34);
+            this.button1.Size = new System.Drawing.Size(135, 42);
             this.button1.TabIndex = 2;
             this.button1.Text = "Add a Cafe";
             this.button1.UseVisualStyleBackColor = true;
@@ -67,9 +70,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(141, 70);
+            this.button2.Location = new System.Drawing.Point(188, 86);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 34);
+            this.button2.Size = new System.Drawing.Size(132, 42);
             this.button2.TabIndex = 3;
             this.button2.Text = "Search Cafes";
             this.button2.UseVisualStyleBackColor = true;
@@ -77,9 +81,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(213, 272);
+            this.button3.Location = new System.Drawing.Point(284, 335);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 35);
+            this.button3.Size = new System.Drawing.Size(116, 43);
             this.button3.TabIndex = 4;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
@@ -87,17 +92,19 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(510, 378);
+            this.ClientSize = new System.Drawing.Size(680, 465);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

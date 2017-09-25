@@ -7,44 +7,112 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CafeApp
 {
     public partial class CafeDataForm : Form
     {
-        public CafeDataForm()
+        public int id;
+        SqlConnection connect = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        string checkingEmail;
+        string email;
+        public CafeDataForm(int id, string email)
         {
+            this.id = id;
+            this.email = email;
             InitializeComponent();
+            ShowInfo(id);
         }
+        private void ShowInfo(int id)
+        {
+            try
+            {
+                connect.Open();
+                SqlCommand cmd = connect.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT * FROM Restaurants WHERE ID='"+id+"'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                searchCodeBox.Text = dt.Rows[0][0].ToString();
+                name.Text = dt.Rows[0][1].ToString();
+                address.Text = dt.Rows[0][2].ToString();
+                label11.Text = dt.Rows[0][3].ToString();
+                number.Text = dt.Rows[0][4].ToString();
+                checkingEmail = dt.Rows[0][8].ToString();
+                connect.Close();
+            }
+            catch( Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkingEmail == email)
+            {
+                string name = textBox1.Text;
+                string address = textBox2.Text;
+                int tables = int.Parse(textBox3.Text);
+                try
+                {
+                    connect.Open();
+                    SqlCommand cmd = connect.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE Restaurants SET Name='" + name + "',Address='" + address + "',Tables='" + tables + "' WHERE ID='" + id + "'";
+                    cmd.ExecuteNonQuery();
+                    connect.Close();
+                    MessageBox.Show("Changed successfully!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sorry, but only creator has access to change data");
+            }
+            this.Close();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Karolio chuj znaet kas :D prispaudinejo turbut
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Create cafe object
-            int tableInt = Int32.Parse(textBox3.Text);
-            Kavine testCafe = new Kavine(textBox1.Text, textBox2.Text, tableInt);
-
-            name.Text = testCafe._name;
-            address.Text = testCafe._address;
-            searchCodeBox.Text = testCafe._Id;
-            number.Text = testCafe._phoneNumber;
-            label11.Text = testCafe._tableCount.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Push cafe object to DB
-            PushLabel.Text = "Pushed to SQL";
-            //TODO actual pushing into SQL
-        }
-
         private void CafeDataForm_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void name_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

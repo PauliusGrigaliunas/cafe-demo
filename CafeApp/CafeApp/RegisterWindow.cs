@@ -15,7 +15,7 @@ namespace CafeApp
         public string password;
         public bool inserted=false;
 
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Albert\Documents\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
 
 
@@ -64,11 +64,14 @@ namespace CafeApp
                         MessageBox.Show("User already exists, please choose different email or login into our system.");
                         connection.Close();
                     }
-                    connection.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             else
