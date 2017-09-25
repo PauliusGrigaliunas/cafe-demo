@@ -13,7 +13,7 @@ namespace CafeApp
 {
     public partial class LoginForm : Form
     {
-        SqlConnection connect = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;Integrated Security = true;AttachDbFilename = C:\\Users\\Mode\\Documents\\GitHub\\cafe-demo\\cafe-demo\\CafeApp\\CafeApp\\bin\\Debug\\Database1.mdf;");
+        SqlConnection connect = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         public LoginForm()
         {
             InitializeComponent();
