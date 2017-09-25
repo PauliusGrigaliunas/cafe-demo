@@ -20,14 +20,17 @@ namespace CafeApp
         string workdays;
         string saturday;
         string sunday;
-        static int id = 0;
+        static int id = 1;
         public bool inserted = false;
+        string email;
 
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;Integrated Security = true;AttachDbFilename = C:\\Users\\Mode\\Documents\\GitHub\\cafe-demo\\cafe-demo\\CafeApp\\CafeApp\\bin\\Debug\\Database1.mdf;");
 
+         
 
-        public AddRestaurant()
+        public AddRestaurant( string email )
         {
+            this.email = email;
             InitializeComponent();
         }
 
@@ -55,7 +58,7 @@ namespace CafeApp
                 da.Fill(dt);
                 if ( !CheckIfNameExists(dt, NameBox.Text) && !inserted )
                 {
-                    cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday) VALUES('"+id+"','"+name+"','"+address+"','"+tables+"','"+phone+"','"+workdays+"','"+saturday+"','"+sunday+"')";
+                    cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('"+id+"','"+name+"','"+address+"','"+tables+"','"+phone+"','"+workdays+"','"+saturday+"','"+sunday+"','"+email+"')";
                     cmd.ExecuteNonQuery();
                     inserted = true;
                     MessageBox.Show("Restaurant successfully added!");

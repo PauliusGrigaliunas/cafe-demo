@@ -14,11 +14,13 @@ namespace CafeApp
     public partial class CafeDataForm : Form
     {
         public int id;
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\GitHub\cafe-demo\CafeApp\CafeApp\Database1.mdf;Integrated Security=True");
-
-        public CafeDataForm(int id)
+        SqlConnection connect = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;Integrated Security = true;AttachDbFilename = C:\\Users\\Mode\\Documents\\GitHub\\cafe-demo\\cafe-demo\\CafeApp\\CafeApp\\bin\\Debug\\Database1.mdf;");
+        string checkingEmail;
+        string email;
+        public CafeDataForm(int id, string email)
         {
             this.id = id;
+            this.email = email;
             InitializeComponent();
             ShowInfo(id);
         }
@@ -39,6 +41,7 @@ namespace CafeApp
                 address.Text = dt.Rows[0][2].ToString();
                 label11.Text = dt.Rows[0][3].ToString();
                 number.Text = dt.Rows[0][4].ToString();
+                checkingEmail = dt.Rows[0][8].ToString();
                 connect.Close();
             }
             catch( Exception ex)
@@ -52,24 +55,30 @@ namespace CafeApp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string name = textBox1.Text;
-            string address = textBox2.Text;
-            int tables = int.Parse(textBox3.Text);
-            try
+            if (checkingEmail == email)
             {
-                connect.Open();
-                SqlCommand cmd = connect.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE Restaurants SET Name='"+name+"',Address='"+address+"',Tables='"+tables+"' WHERE ID='"+id+"'";
-                cmd.ExecuteNonQuery();
-                connect.Close();
-                MessageBox.Show("Changed successfully!");
+                string name = textBox1.Text;
+                string address = textBox2.Text;
+                int tables = int.Parse(textBox3.Text);
+                try
+                {
+                    connect.Open();
+                    SqlCommand cmd = connect.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE Restaurants SET Name='" + name + "',Address='" + address + "',Tables='" + tables + "' WHERE ID='" + id + "'";
+                    cmd.ExecuteNonQuery();
+                    connect.Close();
+                    MessageBox.Show("Changed successfully!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Sorry, but only creator has access to change data");
             }
-
             this.Close();
         }
 
