@@ -57,8 +57,15 @@ namespace CafeApp
                     {
                         ListViewItem item = new ListViewItem(dr["Id"].ToString());
                         item.SubItems.Add(dr["Name"].ToString());
-
-                        listViewCafe.Items.Add(item);
+                        item.SubItems.Add(dr["Address"] .ToString());
+                        item.SubItems.Add(dr["Tables"] .ToString());
+                        item.SubItems.Add(dr["Phone"].ToString());
+                        item.SubItems.Add(dr["Email"].ToString());
+                               
+                        item.SubItems.Add(dr["Workdays"].ToString());
+                        item.SubItems.Add(dr["Saturday"].ToString());
+                        item.SubItems.Add(dr["Sunday"].ToString());
+                       listViewCafe.Items.Add(item);
                     }
 
                     connection.Close();
