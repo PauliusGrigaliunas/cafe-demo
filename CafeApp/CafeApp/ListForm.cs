@@ -90,12 +90,19 @@ namespace CafeApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+               String idString = listViewCafe.SelectedItems[0].Text;  //id (String)
+                id = Convert.ToInt32(idString); // idInt (int) turėtų sutapt su Id iš duomenų bazės
+                CafeDataForm cafe = new CafeDataForm(id, email);
 
-            // Karoliui!
-            String idString = listViewCafe.SelectedItems[0].Text;  //id (String)
-            id = Convert.ToInt32(idString); // idInt (int) turėtų sutapt su Id iš duomenų bazės
-            CafeDataForm cafe = new CafeDataForm(id, email);
-            cafe.ShowDialog();
+                cafe.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Pasirinkite restoraną ar kavinę!");
+            }
+ 
 
         }
 

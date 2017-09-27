@@ -124,9 +124,16 @@ namespace CafeApp
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {               
+                textBox4.Focus();
+            }
+        }
+
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
                 button1.PerformClick();
-
             }
         }
     }
