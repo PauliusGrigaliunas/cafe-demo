@@ -199,7 +199,7 @@
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.textBox1.Location = new System.Drawing.Point(187, 302);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 15;
@@ -210,7 +210,7 @@
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.textBox2.Location = new System.Drawing.Point(187, 335);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(175, 22);
             this.textBox2.TabIndex = 16;
@@ -221,7 +221,7 @@
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.textBox3.Location = new System.Drawing.Point(187, 367);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(175, 22);
             this.textBox3.TabIndex = 17;
@@ -231,7 +231,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(127, 443);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 18;
@@ -252,10 +252,11 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(187, 399);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(175, 22);
             this.textBox4.TabIndex = 20;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
             // 
             // CafeDataForm
@@ -283,7 +284,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CafeDataForm";
             this.Text = "CafeDataForm";
             this.ResumeLayout(false);
