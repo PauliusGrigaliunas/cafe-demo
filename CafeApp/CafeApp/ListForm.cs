@@ -46,7 +46,7 @@ namespace CafeApp
 
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Restaurants";   
+            command.CommandText = "SELECT * FROM Restaurants";
             {
                 try
                 {
@@ -57,15 +57,15 @@ namespace CafeApp
                     {
                         ListViewItem item = new ListViewItem(dr["Id"].ToString());
                         item.SubItems.Add(dr["Name"].ToString());
-                        item.SubItems.Add(dr["Address"] .ToString());
-                        item.SubItems.Add(dr["Tables"] .ToString());
+                        item.SubItems.Add(dr["Address"].ToString());
+                        item.SubItems.Add(dr["Tables"].ToString());
                         item.SubItems.Add(dr["Phone"].ToString());
                         item.SubItems.Add(dr["Email"].ToString());
-                               
+
                         item.SubItems.Add(dr["Workdays"].ToString());
                         item.SubItems.Add(dr["Saturday"].ToString());
                         item.SubItems.Add(dr["Sunday"].ToString());
-                       listViewCafe.Items.Add(item);
+                        listViewCafe.Items.Add(item);
                     }
 
                     connection.Close();
@@ -92,7 +92,7 @@ namespace CafeApp
         {
             try
             {
-               String idString = listViewCafe.SelectedItems[0].Text;  //id (String)
+                String idString = listViewCafe.SelectedItems[0].Text;  //id (String)
                 id = Convert.ToInt32(idString); // idInt (int) turėtų sutapt su Id iš duomenų bazės
                 CafeDataForm cafe = new CafeDataForm(id, email);
 
@@ -102,13 +102,60 @@ namespace CafeApp
             {
                 MessageBox.Show("Pasirinkite restoraną ar kavinę!");
             }
- 
+
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM Restaurants";
+
+            listViewCafe.Items.Clear();
+            {
+                try
+                {
+                    connection.Open();
+                    dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+
+                        if (dr["Name"].ToString() == textBox1.Text || textBox1.Text == String.Empty)
+                        {
+                            ListViewItem item = new ListViewItem(dr["Id"].ToString());
+                            item.SubItems.Add(dr["Name"].ToString());
+                            item.SubItems.Add(dr["Address"].ToString());
+                            item.SubItems.Add(dr["Tables"].ToString());
+                            item.SubItems.Add(dr["Phone"].ToString());
+                            item.SubItems.Add(dr["Email"].ToString());
+
+                            item.SubItems.Add(dr["Workdays"].ToString());
+                            item.SubItems.Add(dr["Saturday"].ToString());
+                            item.SubItems.Add(dr["Sunday"].ToString());
+                            listViewCafe.Items.Add(item);
+                        }
+                    }
+
+                    connection.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
         }
     }
 }
