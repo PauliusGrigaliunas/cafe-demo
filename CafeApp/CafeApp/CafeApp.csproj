@@ -101,7 +101,6 @@
     <Compile Include="RegisterWindow.Designer.cs">
       <DependentUpon>RegisterWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="KarolisMain.cs" />
     <Compile Include="Kavine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,7 +116,6 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="SQLoperations.cs" />
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>

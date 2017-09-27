@@ -151,58 +151,65 @@
             // NameBox
             // 
             this.NameBox.Location = new System.Drawing.Point(227, 86);
-            this.NameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NameBox.Margin = new System.Windows.Forms.Padding(4);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(255, 22);
             this.NameBox.TabIndex = 9;
+            this.NameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameBox_KeyDown);
             // 
             // AddressBox
             // 
             this.AddressBox.Location = new System.Drawing.Point(227, 119);
-            this.AddressBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddressBox.Margin = new System.Windows.Forms.Padding(4);
             this.AddressBox.Name = "AddressBox";
             this.AddressBox.Size = new System.Drawing.Size(255, 22);
             this.AddressBox.TabIndex = 10;
+            this.AddressBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddressBox_KeyDown);
             // 
             // TablesBox
             // 
             this.TablesBox.Location = new System.Drawing.Point(227, 153);
-            this.TablesBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TablesBox.Margin = new System.Windows.Forms.Padding(4);
             this.TablesBox.Name = "TablesBox";
             this.TablesBox.Size = new System.Drawing.Size(255, 22);
             this.TablesBox.TabIndex = 11;
+            this.TablesBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TablesBox_KeyDown);
             // 
             // PhoneBox
             // 
             this.PhoneBox.Location = new System.Drawing.Point(227, 187);
-            this.PhoneBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PhoneBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.Size = new System.Drawing.Size(255, 22);
             this.PhoneBox.TabIndex = 12;
+            this.PhoneBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PhoneBox_KeyDown);
             // 
             // WorkdaysBox
             // 
             this.WorkdaysBox.Location = new System.Drawing.Point(49, 311);
-            this.WorkdaysBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WorkdaysBox.Margin = new System.Windows.Forms.Padding(4);
             this.WorkdaysBox.Name = "WorkdaysBox";
             this.WorkdaysBox.Size = new System.Drawing.Size(71, 22);
             this.WorkdaysBox.TabIndex = 13;
+            this.WorkdaysBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WorkdaysBox_KeyDown);
             // 
             // SaturdayBox
             // 
             this.SaturdayBox.Location = new System.Drawing.Point(264, 311);
-            this.SaturdayBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SaturdayBox.Margin = new System.Windows.Forms.Padding(4);
             this.SaturdayBox.Name = "SaturdayBox";
             this.SaturdayBox.Size = new System.Drawing.Size(68, 22);
             this.SaturdayBox.TabIndex = 14;
+            this.SaturdayBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SaturdayBox_KeyDown);
             // 
             // SundayBox
             // 
             this.SundayBox.Location = new System.Drawing.Point(473, 311);
-            this.SundayBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SundayBox.Margin = new System.Windows.Forms.Padding(4);
             this.SundayBox.Name = "SundayBox";
             this.SundayBox.Size = new System.Drawing.Size(69, 22);
             this.SundayBox.TabIndex = 15;
+            this.SundayBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SundayBox_KeyDown);
             // 
             // label10
             // 
@@ -227,7 +234,7 @@
             // AddButton
             // 
             this.AddButton.Location = new System.Drawing.Point(252, 384);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(120, 28);
             this.AddButton.TabIndex = 18;
@@ -260,7 +267,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddRestaurant";
             this.Text = "AddRestaurant";
             this.Load += new System.EventHandler(this.AddRestaurant_Load);

@@ -83,36 +83,31 @@ namespace CafeApp
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Karolio chuj znaet kas :D prispaudinejo turbut
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
 
+            }
         }
 
-        private void CafeDataForm_Load(object sender, EventArgs e)
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox3.Focus();
+
+            }
         }
 
-        private void name_Click(object sender, EventArgs e)
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
 
+            }
         }
     }
 }
