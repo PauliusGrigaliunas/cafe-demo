@@ -36,14 +36,29 @@ namespace CafeApp
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            name = NameBox.Text;
-            address = AddressBox.Text;
-            phone = PhoneBox.Text;
-            tables = int.Parse(TablesBox.Text);
-            workdays = WorkdaysBox.Text;
-            saturday = SaturdayBox.Text;
-            sunday = SundayBox.Text;
+            try
+            {
+                name = NameBox.Text;
+                address = AddressBox.Text;
+                phone = PhoneBox.Text;           
+                workdays = WorkdaysBox.Text;
+                saturday = SaturdayBox.Text;
+                sunday = SundayBox.Text;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Netinkamai suvesti duomenys");
+            }
 
+            try
+            {
+                tables = int.Parse(TablesBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("į stalų kiekį įveskite skaičių");
+            }
+            
 
 
             try
