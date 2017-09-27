@@ -19,7 +19,15 @@ namespace CafeApp
 
         private void bookTable_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (string.IsNullOrEmpty(label4.Text))
+            {
+                MessageBox.Show("Please select booking date");
+            }
+            else if (string.IsNullOrEmpty(label5.Text))
+            {
+                MessageBox.Show("Please select booking time");
+            }
+            else this.Close();
         }
 
         private void Booking_Load(object sender, EventArgs e)
@@ -40,6 +48,11 @@ namespace CafeApp
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             label4.Text = dateTimePicker2.Value.ToShortDateString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
