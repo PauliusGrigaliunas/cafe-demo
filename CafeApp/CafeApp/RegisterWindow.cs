@@ -149,7 +149,6 @@ namespace CafeApp
             if (e.KeyCode == Keys.Enter)
             {
                 button1.PerformClick();
-
             }
         }
     }
