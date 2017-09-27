@@ -59,14 +59,34 @@ namespace CafeApp
             {
                 string name = textBox1.Text;
                 string address = textBox2.Text;
-                int tables = int.Parse(textBox3.Text);
+                int tables;
+                string phone = textBox4.Text;
                 try
                 {
                     connect.Open();
                     SqlCommand cmd = connect.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "UPDATE Restaurants SET Name='" + name + "',Address='" + address + "',Tables='" + tables + "' WHERE ID='" + id + "'";
-                    cmd.ExecuteNonQuery();
+                    if (!string.IsNullOrEmpty(textBox1.Text))
+                    {
+                        cmd.CommandText = "UPDATE Restaurants SET Name='" + name + "' WHERE ID='" + id + "'";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (!string.IsNullOrEmpty(textBox2.Text))
+                    {
+                        cmd.CommandText = "UPDATE Restaurants SET Address='" + address + "' WHERE ID='" + id + "'";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (!string.IsNullOrEmpty(textBox3.Text))
+                    {
+                        tables = int.Parse(textBox3.Text);
+                        cmd.CommandText = "UPDATE Restaurants SET Tables='" + tables + "' WHERE ID='" + id + "'";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (!string.IsNullOrEmpty(textBox4.Text))
+                    {
+                        cmd.CommandText = "UPDATE Restaurants SET Phone='" + phone + "' WHERE ID='" + id + "'";
+                        cmd.ExecuteNonQuery();
+                    }
                     connect.Close();
                     MessageBox.Show("Changed successfully!");
                 }

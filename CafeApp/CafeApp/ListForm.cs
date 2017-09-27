@@ -95,7 +95,7 @@ namespace CafeApp
             String idString = listViewCafe.SelectedItems[0].Text;  //id (String)
             id = Convert.ToInt32(idString); // idInt (int) turėtų sutapt su Id iš duomenų bazės
             CafeDataForm cafe = new CafeDataForm(id, email);
-            cafe.Show();
+            cafe.ShowDialog();
 
         }
 
