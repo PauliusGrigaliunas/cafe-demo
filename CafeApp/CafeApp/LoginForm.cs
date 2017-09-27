@@ -34,7 +34,7 @@ namespace CafeApp
                 int i = dt.Rows.Count;                                          //surandame ar yra nors viena eilute su tokiais duomenim
                 if ( i == 1 )                                             //jei yra 1, tada cool, prisijungta sekminga
                 {
-                    MainMenu main = new MainMenu(Email.Text);
+                    MainMenu main = new MainMenu(Email.Text, this);
                     main.Show();
                     this.Hide();
                 }
