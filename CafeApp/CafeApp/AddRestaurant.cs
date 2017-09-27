@@ -20,7 +20,7 @@ namespace CafeApp
         string workdays;
         string saturday;
         string sunday;
-        static int id = 1;
+        private int id;
         public bool inserted = false;
         string email;
 
@@ -56,6 +56,8 @@ namespace CafeApp
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
+                id = dt.Rows.Count;
+                id++;
                 if ( !CheckIfNameExists(dt, NameBox.Text) && !inserted )
                 {
                     cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('"+id+"','"+name+"','"+address+"','"+tables+"','"+phone+"','"+workdays+"','"+saturday+"','"+sunday+"','"+email+"')";
@@ -92,7 +94,6 @@ namespace CafeApp
             }
             return exist;
         }
-
         private void AddRestaurant_Load(object sender, EventArgs e)
         {
 
