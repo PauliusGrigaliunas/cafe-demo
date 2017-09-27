@@ -13,12 +13,14 @@ namespace CafeApp
     public partial class MainMenu : Form
     {
         public string email;
+        private Form _loginForm;
 
-        public MainMenu(string email)
+        public MainMenu(string email, Form loginForm)
         {
             this.email = email;
             InitializeComponent();
             EmailLabel.Text = email + "!";
+            _loginForm = loginForm; //Needed in order to get back to hidden login form
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +43,11 @@ namespace CafeApp
         private void MainMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e) //On closed MainMenu reveals hidden LoginForm
+        {
+            _loginForm.Show();
         }
     }
 }
