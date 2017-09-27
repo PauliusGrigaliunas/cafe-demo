@@ -12,6 +12,10 @@ namespace CafeApp
 {
     public partial class Booking : Form
     {
+        DateTime now;
+        DateTime selectedDate;
+        DateTime selectedTime;
+        TimeSpan t;
         public Booking()
         {
             InitializeComponent();
@@ -19,15 +23,16 @@ namespace CafeApp
 
         private void bookTable_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(label4.Text))
+            DateTime newDate = selectedDate.AddHours(-selectedDate.Hour).AddMinutes(-selectedDate.Minute).AddHours(selectedTime.Hour).AddMinutes(selectedTime.Minute);
+            label7.Text = newDate.ToString();
+            DateTime now = DateTime.Now;
+            t = newDate - now;
+            label6.Text = t.TotalDays.ToString();
+            if ( t.TotalDays < 0)
             {
-                MessageBox.Show("Please select booking date");
+                MessageBox.Show("Selected date has already passed! Please select another");
             }
-            else if (string.IsNullOrEmpty(label5.Text))
-            {
-                MessageBox.Show("Please select booking time");
-            }
-            else this.Close();
+            else MessageBox.Show("Booking successful! Enjoy your meal :)");
         }
 
         private void Booking_Load(object sender, EventArgs e)
@@ -38,15 +43,23 @@ namespace CafeApp
             this.dateTimePicker1.ShowUpDown = true;
             label4.Text = null;
             label5.Text = null;
+            now = DateTime.Now;
+            selectedTime = dateTimePicker1.Value;
+            selectedDate = dateTimePicker2.Value;
+            label4.Text = dateTimePicker2.Value.ToShortDateString();
+            label5.Text = dateTimePicker1.Value.ToShortTimeString();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+
+            selectedTime = dateTimePicker1.Value;
             label5.Text = dateTimePicker1.Value.ToShortTimeString();
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
+            selectedDate = dateTimePicker2.Value;
             label4.Text = dateTimePicker2.Value.ToShortDateString();
         }
 
