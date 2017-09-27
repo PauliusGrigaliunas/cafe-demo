@@ -99,6 +99,7 @@ namespace CafeApp
             {
                 MessageBox.Show("Sorry, but only creator has access to change data");
             }
+
             this.Close();
         }
 

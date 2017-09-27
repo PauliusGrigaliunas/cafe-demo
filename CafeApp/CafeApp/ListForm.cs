@@ -36,13 +36,15 @@ namespace CafeApp
         }
 
 
-        private void ListForm_Load(object sender, EventArgs e)
+        private void ListForm_Activated(object sender, EventArgs e)
         {
+            listViewCafe.Items.Clear();
             populateCafe();
         }
 
         private void populateCafe()
         {
+            
 
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
@@ -135,7 +137,6 @@ namespace CafeApp
                             item.SubItems.Add(dr["Tables"].ToString());
                             item.SubItems.Add(dr["Phone"].ToString());
                             item.SubItems.Add(dr["Email"].ToString());
-
                             item.SubItems.Add(dr["Workdays"].ToString());
                             item.SubItems.Add(dr["Saturday"].ToString());
                             item.SubItems.Add(dr["Sunday"].ToString());
