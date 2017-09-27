@@ -97,5 +97,69 @@ namespace CafeApp
         {
 
         }
+
+        private void NameBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AddressBox.Focus();
+
+            }
+        }
+
+        private void AddressBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TablesBox.Focus();
+
+            }
+
+        }
+
+        private void TablesBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PhoneBox.Focus();
+
+            }
+        }
+
+        private void PhoneBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                WorkdaysBox.Focus();
+
+            }
+        }
+
+        private void WorkdaysBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SaturdayBox.Focus();
+
+            }
+        }
+
+        private void SaturdayBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SundayBox.Focus();
+
+            }
+        }
+
+        private void SundayBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AddButton.PerformClick();
+
+            }
+        }
     }
 }

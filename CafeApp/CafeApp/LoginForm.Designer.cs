@@ -62,23 +62,26 @@
             // Email
             // 
             this.Email.Location = new System.Drawing.Point(204, 324);
-            this.Email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Email.Margin = new System.Windows.Forms.Padding(4);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(260, 22);
             this.Email.TabIndex = 2;
+            this.Email.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Email_KeyDown);
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(204, 356);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(260, 22);
             this.textBox2.TabIndex = 3;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(311, 404);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 37);
             this.button1.TabIndex = 4;
@@ -91,7 +94,7 @@
             this.CupOfCafe.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CupOfCafe.BackgroundImage")));
             this.CupOfCafe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CupOfCafe.Location = new System.Drawing.Point(72, 15);
-            this.CupOfCafe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CupOfCafe.Margin = new System.Windows.Forms.Padding(4);
             this.CupOfCafe.Name = "CupOfCafe";
             this.CupOfCafe.Size = new System.Drawing.Size(393, 273);
             this.CupOfCafe.TabIndex = 5;
@@ -100,7 +103,7 @@
             // Register
             // 
             this.Register.Location = new System.Drawing.Point(141, 404);
-            this.Register.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Register.Margin = new System.Windows.Forms.Padding(4);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(115, 37);
             this.Register.TabIndex = 6;
@@ -121,7 +124,7 @@
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);

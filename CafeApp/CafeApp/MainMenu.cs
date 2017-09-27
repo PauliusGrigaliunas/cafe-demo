@@ -40,10 +40,6 @@ namespace CafeApp
             Application.Exit();
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-
-        }
 
         protected override void OnFormClosing(FormClosingEventArgs e) //On closed MainMenu reveals hidden LoginForm
         {
