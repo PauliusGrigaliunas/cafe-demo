@@ -71,6 +71,12 @@
     <Compile Include="AddRestaurant.Designer.cs">
       <DependentUpon>AddRestaurant.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorScreen.Designer.cs">
+      <DependentUpon>ErrorScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +110,15 @@
     <Compile Include="Kavine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableReservation.cs" />
     <EmbeddedResource Include="AddRestaurant.resx">
       <DependentUpon>AddRestaurant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CafeDataForm.resx">
       <DependentUpon>CafeDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorScreen.resx">
+      <DependentUpon>ErrorScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
