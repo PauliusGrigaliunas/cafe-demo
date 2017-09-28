@@ -23,10 +23,16 @@ namespace CafeApp
 
         private void bookTable_Click(object sender, EventArgs e)
         {
-            DateTime newDate = selectedDate.AddHours(-selectedDate.Hour).AddMinutes(-selectedDate.Minute).AddSeconds(-selectedDate.Second).AddHours(selectedTime.Hour).AddMinutes(selectedTime.Minute);
+            DateTime newDate = selectedDate.
+                AddHours(-selectedDate.Hour).                     //nunulinam selected date reiksme, jei dar yra kazkas daugiau uz 0
+                AddMinutes(-selectedDate.Minute).
+                AddSeconds(-selectedDate.Second).
+                AddHours(selectedTime.Hour).                          //pridedam pasirinkta reiksme
+                AddMinutes(selectedTime.Minute);
             //ta new date jau gali naudot kaip rezervavimo laika. 
             DateTime now = DateTime.Now;
             t = newDate - now;
+            label6.Text = t.TotalDays.ToString();
             if ( t.TotalDays < 0)
             {
                 MessageBox.Show("Selected date has already passed! Please select another");
