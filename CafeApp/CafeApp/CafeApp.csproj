@@ -101,7 +101,6 @@
     <Compile Include="RegisterWindow.Designer.cs">
       <DependentUpon>RegisterWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kavine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddRestaurant.resx">
