@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,6 +84,7 @@
     <Compile Include="ListForm.Designer.cs">
       <DependentUpon>ListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Address.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\atsisiųsti.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoogleDirections\GoogleDirections.csproj">
+      <Project>{7c6447b2-d889-4306-ad8b-da5542054c66}</Project>
+      <Name>GoogleDirections</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

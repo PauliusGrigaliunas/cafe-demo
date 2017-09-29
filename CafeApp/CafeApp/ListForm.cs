@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Device.Location;
 
 namespace CafeApp
 {
@@ -129,7 +130,7 @@ namespace CafeApp
                     while (dr.Read())
                     {
 
-                        if (dr["Name"].ToString() == textBox1.Text || textBox1.Text == String.Empty)
+                        if (dr["Name"].ToString().Contains(textBox1.Text) || textBox1.Text == String.Empty)
                         {
                             ListViewItem item = new ListViewItem(dr["Id"].ToString());
                             item.SubItems.Add(dr["Name"].ToString());
@@ -156,6 +157,81 @@ namespace CafeApp
                     connection.Close();
                 }
 
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            Address address = Address.Instance;
+           
+            var city = address.ReverseGeocode();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM Restaurants";
+
+            listViewCafe.Items.Clear();
+            {
+                try
+                {
+                    connection.Open();
+                    dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+
+                        if (dr["Address"].ToString().Contains(city))
+                        {
+                            ListViewItem item = new ListViewItem(dr["Id"].ToString());
+                            item.SubItems.Add(dr["Name"].ToString());
+                            item.SubItems.Add(dr["Address"].ToString());
+                            item.SubItems.Add(dr["Tables"].ToString());
+                            item.SubItems.Add(dr["Phone"].ToString());
+                            item.SubItems.Add(dr["Email"].ToString());
+                            item.SubItems.Add(dr["Workdays"].ToString());
+                            item.SubItems.Add(dr["Saturday"].ToString());
+                            item.SubItems.Add(dr["Sunday"].ToString());
+                            listViewCafe.Items.Add(item);
+                        }
+                    }
+
+
+                    connection.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+        }
+
+        private void ListForm_Load(object sender, EventArgs e)
+        {
+            Address address = Address.Instance;
+            Address.Instance.watcher = new GeoCoordinateWatcher();
+            Address.Instance.coordinate = new GeoCoordinate();
+            Address.Instance.watcher.StatusChanged += watcher_StatusChanged;
+            Address.Instance.watcher.Start();
+        }
+
+        private void watcher_StatusChanged(Object sender, GeoPositionStatusChangedEventArgs e)
+        {
+            if (e.Status == GeoPositionStatus.Ready)
+            {
+                if (Address.Instance.watcher.Position.Location.IsUnknown)
+                {
+                    textBox1.Text = "Location is unknown";
+                }
+                else
+                {
+                    Address.Instance.coordinate = Address.Instance.watcher.Position.Location;
+                }
             }
         }
     }
