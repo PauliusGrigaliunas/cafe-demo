@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace CafeApp
 {
-    //TODO remove public from Table class
     public class Table
     {
         public int _id;
@@ -57,16 +56,23 @@ namespace CafeApp
         private SqlConnection connection = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         private SqlDataReader sqlDataReader;
 
+        string _kavinesPavadinimas;
         List<Table> allTables = new List<Table>();
         List<Table> availableTables = new List<Table>();
 
-        
-        public void GetAllTables()
+        TableReservation(string kavinesPavadinimas)
+        {
+            _kavinesPavadinimas = kavinesPavadinimas;
+            GetAllTables(kavinesPavadinimas);
+        }
+
+
+        public void GetAllTables(string kavinesPavadinimas)
         {
             //connection.Open(); //Bug: connection is not closed
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT * FROM CafeTables";
+            cmd.CommandText = "SELECT * FROM CafeTables WHERE Kavine = '"+ kavinesPavadinimas +"'";
             try
             {
                 connection.Open();

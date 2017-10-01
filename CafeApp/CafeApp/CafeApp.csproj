@@ -66,17 +66,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddRestaurant.cs">
+    <Compile Include="AddRestaurantForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddRestaurant.Designer.cs">
-      <DependentUpon>AddRestaurant.cs</DependentUpon>
+    <Compile Include="AddRestaurantForm.Designer.cs">
+      <DependentUpon>AddRestaurantForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Booking.cs">
+    <Compile Include="BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Booking.designer.cs">
-      <DependentUpon>Booking.cs</DependentUpon>
+    <Compile Include="BookingForm.designer.cs">
+      <DependentUpon>BookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorScreen.cs">
       <SubType>Form</SubType>
@@ -117,12 +117,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant.cs" />
     <Compile Include="TableReservation.cs" />
-    <EmbeddedResource Include="AddRestaurant.resx">
-      <DependentUpon>AddRestaurant.cs</DependentUpon>
+    <EmbeddedResource Include="AddRestaurantForm.resx">
+      <DependentUpon>AddRestaurantForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Booking.resx">
-      <DependentUpon>Booking.cs</DependentUpon>
+    <EmbeddedResource Include="BookingForm.resx">
+      <DependentUpon>BookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CafeDataForm.resx">
       <DependentUpon>CafeDataForm.cs</DependentUpon>

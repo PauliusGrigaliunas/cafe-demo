@@ -1,6 +1,6 @@
 ﻿namespace CafeApp
 {
-    partial class AddRestaurant
+    partial class AddRestaurantForm
     {
         /// <summary>
         /// Required designer variable.
@@ -265,7 +265,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AddRestaurant";
             this.Text = "AddRestaurant";
-            this.Load += new System.EventHandler(this.AddRestaurant_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TablesBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
