@@ -31,12 +31,6 @@ namespace CafeApp
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void ListForm_Activated(object sender, EventArgs e)
         {
             listViewCafe.Items.Clear();
@@ -45,8 +39,6 @@ namespace CafeApp
 
         private void populateCafe()
         {
-            
-
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
             command.CommandText = "SELECT * FROM Restaurants";
@@ -86,11 +78,6 @@ namespace CafeApp
             }
         }
 
-        private void listViewCafe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -106,12 +93,11 @@ namespace CafeApp
                 MessageBox.Show("Pasirinkite restoraną ar kavinę!");
             }
 
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new Booking().ShowDialog();
+            new BookingForm().ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -130,7 +116,7 @@ namespace CafeApp
                     while (dr.Read())
                     {
 
-                        if (dr["Name"].ToString().Contains(textBox1.Text) || textBox1.Text == String.Empty)
+                        if (dr["Name"].ToString().Contains(searchBox.Text) || searchBox.Text == String.Empty)
                         {
                             ListViewItem item = new ListViewItem(dr["Id"].ToString());
                             item.SubItems.Add(dr["Name"].ToString());
@@ -226,7 +212,7 @@ namespace CafeApp
             {
                 if (Address.Instance.watcher.Position.Location.IsUnknown)
                 {
-                    textBox1.Text = "Location is unknown";
+                    searchBox.Text = "Location is unknown";
                 }
                 else
                 {

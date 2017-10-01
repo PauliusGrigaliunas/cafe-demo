@@ -11,8 +11,11 @@ using System.Data.SqlClient;
 
 namespace CafeApp
 {
-    public partial class AddRestaurant : Form
+    public partial class AddRestaurantForm : Form
     {
+        SqlConnection connect = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
+        int id;
         string name;
         string address;
         string phone;
@@ -20,81 +23,73 @@ namespace CafeApp
         string workdays;
         string saturday;
         string sunday;
-        private int id;
-        public bool inserted = false;
-        string email;
+        string restaurantsEmail;    //<--- viesas pastas matomas klientams
+        string registerActorsEmail; //<--- prisijungusio registruotojo pastas
 
-        SqlConnection connect = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        bool inserted;
 
-
-
-        public AddRestaurant( string email )
+        public AddRestaurantForm(string userEmail)
         {
-            this.email = email;
+            registerActorsEmail = userEmail;
             InitializeComponent();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            bool mandatoryFieldsEmpty = false;
-
-            //Mandatory to fill: name, address (,tables)
+            //Mandatory to fill: name, address
             name = NameBox.Text;
             address = AddressBox.Text;
-            phone = PhoneBox.Text;
-            tables = (int)TablesBox.Value;
-            workdays = WorkdaysBox.Text;
-            saturday = SaturdayBox.Text;
-            sunday = SundayBox.Text;
-
-            //---String checking/fixing
             if (name.Length == 0 || address.Length == 0)
-                mandatoryFieldsEmpty = true;
-
-            //Should add ALL of the strings passed to DB just to be safe
-            name = name.Replace("'", "''");
-            address = address.Replace("'", "''");
-            phone = phone.Replace("'", "''");
-            //---
-
-            if (mandatoryFieldsEmpty)
                 MessageBox.Show("You forgot to fill some mandatory information. Try again");
-            else try
+            else
             {
-                connect.Open();
-                SqlCommand cmd = connect.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT * FROM Restaurants";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                id = dt.Rows.Count;
-                id++;
-                if ( !CheckIfNameExists(dt, NameBox.Text) && !inserted )
+                phone = PhoneBox.Text;
+                tables = (int)TablesBox.Value;
+                workdays = WorkdaysBox.Text;
+                saturday = SaturdayBox.Text;
+                sunday = SundayBox.Text;
+
+                //NOTE: Should add ALL of the string variables passed to DB
+                name = name.Replace("'", "''");
+                address = address.Replace("'", "''");
+                phone = phone.Replace("'", "''");
+
+                try
                 {
-                    cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('"+id+"','"+name+"','"+address+"','"+tables+"','"+phone+"','"+workdays+"','"+saturday+"','"+sunday+"','"+email+"')";
+                    connect.Open();
+                    SqlCommand cmd = connect.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT * FROM Restaurants";
                     cmd.ExecuteNonQuery();
-                    inserted = true;
-                    MessageBox.Show("Restaurant successfully added!");
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    id = dt.Rows.Count;
                     id++;
+                    if (!CheckIfNameExists(dt, NameBox.Text) && !inserted)
+                    {
+                        cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
+                        cmd.ExecuteNonQuery();
+                        inserted = true;
+                        MessageBox.Show("Restaurant successfully added!");
+                        id++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Restaurant with this name already exists, please try again.");
+                    }
+                    connect.Close();
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Restaurant with this name already exists, please check again.");
+                    MessageBox.Show(ex.Message);
                 }
-                connect.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                connect.Close();
+                finally
+                {
+                    connect.Close();
+                }
             }
 
-            //this.Close(); //Removed for design reasons. I don't think "Add" button should have Exit functionality (K.S.)
         }
 
         private bool CheckIfNameExists(DataTable dt, string data)
@@ -108,11 +103,6 @@ namespace CafeApp
                 }
             }
             return exist;
-        }
-
-        private void AddRestaurant_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void NameBox_KeyDown(object sender, KeyEventArgs e)
