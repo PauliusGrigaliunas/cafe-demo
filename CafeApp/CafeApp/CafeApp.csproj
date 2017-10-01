@@ -118,6 +118,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="TableReservation.cs" />
     <EmbeddedResource Include="AddRestaurantForm.resx">
       <DependentUpon>AddRestaurantForm.cs</DependentUpon>
