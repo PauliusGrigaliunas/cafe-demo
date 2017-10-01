@@ -10,47 +10,6 @@ using System.Windows.Forms;
 
 namespace CafeApp
 {
-    public class Table
-    {
-        public int _id;
-        public string _kavinesPavadinimas;
-
-        //ISO 8601 format
-        //YYYY-MM-DDThh:mm:ss
-        //The T indicates the start of the time part of the datetime value.
-        public DateTime _reservedOnFullDate;   
-        public TimeSpan _reservedOnHours;
-
-        public Table(int id, string kavinespavadinimas, DateTime reservedOnFullDate) //Pretty much just a testing constructor
-        {
-            _id = id;
-            _kavinesPavadinimas = kavinespavadinimas;
-            ChangeReservedDate(reservedOnFullDate);
-        }
-
-        public Table(int id, string kavinesPavadinimas) //The regular constructor
-        {
-            _id = id;
-            _kavinesPavadinimas = kavinesPavadinimas;
-        }
-
-        public void ChangeReservedDate(DateTime newDate)
-        {
-            _reservedOnFullDate = newDate;
-            _reservedOnHours = _reservedOnFullDate.TimeOfDay;
-        }
-
-        void ChangeReservedTime(TimeSpan newTime)
-        {
-            _reservedOnHours = newTime;
-        }
-
-        void addTableToDatabase()
-        {
-
-        }
-    }
-
     class TableReservation
     {
         private SqlConnection connection = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
