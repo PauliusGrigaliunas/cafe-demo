@@ -126,9 +126,10 @@
             // 
             this.button2.Location = new System.Drawing.Point(47, 405);
             this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(212, 42);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Close";
+            this.button2.Text = "Book A Table";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
