@@ -60,7 +60,7 @@ namespace CafeApp
         List<Table> allTables = new List<Table>();
         List<Table> availableTables = new List<Table>();
 
-        TableReservation(string kavinesPavadinimas)
+        public TableReservation(string kavinesPavadinimas)
         {
             _kavinesPavadinimas = kavinesPavadinimas;
             GetAllTables(kavinesPavadinimas);

@@ -21,6 +21,7 @@ namespace CafeApp
         {
             _name = name;
             _address = address;
+            tableReservation = new TableReservation(name);
         }
 
         public Restaurant(int id, string name, string address, string phone, int tables, string workdays, string saturday, string sunday, string restaurantsEmail)
@@ -32,6 +33,7 @@ namespace CafeApp
             _saturday = saturday;
             _sunday = sunday;
             _restaurantsEmail = restaurantsEmail;
+            tableReservation = new TableReservation(name);
         }
     }
 }
