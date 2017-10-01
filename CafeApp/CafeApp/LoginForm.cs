@@ -89,5 +89,12 @@ namespace CafeApp
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e) //Button made so I don't have to type in login details while testing (K.S.)
+        {
+            Email.Text = "testacc@mail.com";
+            textBox2.Text = "password";
+            button1_Click(sender, e);
+        }
     }
 }

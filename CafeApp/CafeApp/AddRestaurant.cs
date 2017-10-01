@@ -36,6 +36,7 @@ namespace CafeApp
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             try
             {
                 name = NameBox.Text;
@@ -59,9 +60,32 @@ namespace CafeApp
                 MessageBox.Show("į stalų kiekį įveskite skaičių");
             }
             
+=======
+            bool mandatoryFieldsEmpty = false;
 
+            //Mandatory to fill: name, address (,tables)
+            name = NameBox.Text;
+            address = AddressBox.Text;
+            phone = PhoneBox.Text;
+            tables = (int)TablesBox.Value;
+            workdays = WorkdaysBox.Text;
+            saturday = SaturdayBox.Text;
+            sunday = SundayBox.Text;
 
-            try
+            //---String checking/fixing
+            if (name.Length == 0 || address.Length == 0)
+                mandatoryFieldsEmpty = true;
+>>>>>>> master
+
+            //Should add ALL of the strings passed to DB just to be safe
+            name = name.Replace("'", "''");
+            address = address.Replace("'", "''");
+            phone = phone.Replace("'", "''");
+            //---
+
+            if (mandatoryFieldsEmpty)
+                MessageBox.Show("You forgot to fill some mandatory information. Try again");
+            else try
             {
                 connect.Open();
                 SqlCommand cmd = connect.CreateCommand();
@@ -95,8 +119,10 @@ namespace CafeApp
             {
                 connect.Close();
             }
-            this.Close();
+
+            //this.Close(); //Removed for design reasons. I don't think "Add" button should have Exit functionality (K.S.)
         }
+
         private bool CheckIfNameExists(DataTable dt, string data)
         {
             bool exist = false;
@@ -109,6 +135,7 @@ namespace CafeApp
             }
             return exist;
         }
+
         private void AddRestaurant_Load(object sender, EventArgs e)
         {
 

@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,12 +72,25 @@
     <Compile Include="AddRestaurant.Designer.cs">
       <DependentUpon>AddRestaurant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking.designer.cs">
+      <DependentUpon>Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorScreen.Designer.cs">
+      <DependentUpon>ErrorScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListForm.Designer.cs">
       <DependentUpon>ListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Address.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,14 +115,20 @@
     <Compile Include="RegisterWindow.Designer.cs">
       <DependentUpon>RegisterWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kavine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableReservation.cs" />
     <EmbeddedResource Include="AddRestaurant.resx">
       <DependentUpon>AddRestaurant.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Booking.resx">
+      <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CafeDataForm.resx">
       <DependentUpon>CafeDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorScreen.resx">
+      <DependentUpon>ErrorScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
@@ -159,6 +179,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\atsisiųsti.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoogleDirections\GoogleDirections.csproj">
+      <Project>{7c6447b2-d889-4306-ad8b-da5542054c66}</Project>
+      <Name>GoogleDirections</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
