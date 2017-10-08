@@ -25,7 +25,7 @@ namespace CafeApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddRestaurant add = new AddRestaurant(email);
+            AddRestaurantForm add = new AddRestaurantForm(email);
             add.ShowDialog();
         }
 
