@@ -24,58 +24,6 @@ namespace CafeApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            name = textBox1.Text;
-            surname = textBox2.Text;
-            e_mail = textBox3.Text;
-            password = textBox4.Text;
-            /// TODO: Validation system (check for valid email, password. 
-            /// After validating data INSTERT TO DB
-            /// Note: Don't forget about try/catch 
-            
-            if (IsValidEmail(e_mail)&& IsValidPassword(password))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT * FROM Users";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter sa = new SqlDataAdapter(cmd);
-                    sa.Fill(dt);
-                    if (!CheckIfMailExists(dt, textBox3.Text) && !inserted)
-                    {
-                        cmd.CommandText = "INSERT INTO Users (Email,Password,Name,Surname) VALUES('"+textBox3.Text+ "','" + textBox4.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
-                        cmd.ExecuteNonQuery();
-                        inserted = true;
-                        MessageBox.Show("User successfully registered!");
-                        connection.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("User already exists, please choose different email or login into our system.");
-                        connection.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Your email or password are incorrect, please, check them and try again.");
-            }
-            this.Close();
-        }
-
         private bool IsValidEmail (string email)
         {
             try
@@ -143,8 +91,60 @@ namespace CafeApp
         {
             if (e.KeyCode == Keys.Enter)
             {
-                button1.PerformClick();
+                CreateAccount.PerformClick();
             }
+        }
+
+        private void CreateAccount_Click(object sender, EventArgs e)
+        {
+            name = textBox1.Text;
+            surname = textBox2.Text;
+            e_mail = textBox3.Text;
+            password = textBox4.Text;
+            /// TODO: Validation system (check for valid email, password. 
+            /// After validating data INSTERT TO DB
+            /// Note: Don't forget about try/catch 
+
+            if (IsValidEmail(e_mail) && IsValidPassword(password))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT * FROM Users";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter sa = new SqlDataAdapter(cmd);
+                    sa.Fill(dt);
+                    if (!CheckIfMailExists(dt, textBox3.Text) && !inserted)
+                    {
+                        cmd.CommandText = "INSERT INTO Users (Email,Password,Name,Surname) VALUES('" + textBox3.Text + "','" + textBox4.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
+                        cmd.ExecuteNonQuery();
+                        inserted = true;
+                        MessageBox.Show("User successfully registered!");
+                        connection.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User already exists, please choose different email or login into our system.");
+                        connection.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Your email or password are incorrect, please, check them and try again.");
+            }
+            this.Close();
         }
     }
 }

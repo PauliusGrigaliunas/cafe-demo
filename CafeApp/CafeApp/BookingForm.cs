@@ -68,7 +68,7 @@ namespace CafeApp
             label4.Text = dateTimePicker2.Value.ToShortDateString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }

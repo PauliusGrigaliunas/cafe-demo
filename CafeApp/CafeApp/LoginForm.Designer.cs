@@ -33,7 +33,7 @@
             this.Password = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Login = new System.Windows.Forms.Button();
             this.CupOfCafe = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.Button();
             this.loginShortcutButton = new System.Windows.Forms.Button();
@@ -75,15 +75,15 @@
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
-            // button1
+            // Login
             // 
-            this.button1.Location = new System.Drawing.Point(233, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 30);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Prisijungti";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Login.Location = new System.Drawing.Point(233, 328);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(96, 30);
+            this.Login.TabIndex = 4;
+            this.Login.Text = "Prisijungti";
+            this.Login.UseVisualStyleBackColor = true;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // CupOfCafe
             // 
@@ -126,7 +126,7 @@
             this.Controls.Add(this.loginShortcutButton);
             this.Controls.Add(this.Register);
             this.Controls.Add(this.CupOfCafe);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Login);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Password);
@@ -146,7 +146,7 @@
         private System.Windows.Forms.Label Password;
         private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Login;
         private System.Windows.Forms.PictureBox CupOfCafe;
         private System.Windows.Forms.Button Register;
         private System.Windows.Forms.Button loginShortcutButton;

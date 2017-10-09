@@ -134,7 +134,7 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Close_Click);
             // 
             // label6
             // 
@@ -145,7 +145,7 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "label6";
             // 
-            // Booking
+            // BookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,7 +162,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bookTable);
             this.Controls.Add(this.dateTimePicker1);
-            this.Name = "Booking";
+            this.Name = "BookingForm";
             this.Text = "Booking";
             this.Load += new System.EventHandler(this.Booking_Load);
             this.ResumeLayout(false);

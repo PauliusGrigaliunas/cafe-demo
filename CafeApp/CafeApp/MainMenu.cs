@@ -23,27 +23,26 @@ namespace CafeApp
             _loginForm = loginForm; //Needed in order to get back to hidden login form
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        protected override void OnFormClosing(FormClosingEventArgs e) //On closed MainMenu reveals hidden LoginForm
         {
-            AddRestaurantForm add = new AddRestaurantForm(email);
-            add.ShowDialog();
+            _loginForm.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void SearchCafes_Click(object sender, EventArgs e)
         {
             ListForm listForm = new ListForm(email);
             listForm.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void AddCafe_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-
-        protected override void OnFormClosing(FormClosingEventArgs e) //On closed MainMenu reveals hidden LoginForm
-        {
-            _loginForm.Show();
+            AddRestaurantForm add = new AddRestaurantForm(email);
+            add.ShowDialog();
         }
     }
 }
