@@ -70,14 +70,13 @@ namespace CafeApp
                     {
                         cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
 
-                        //cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
                         //Paulius prikišo nagus
 
                         for (int a = 0 ; a <= tables ; a++ ) { 
                         cmd.CommandText = "INSERT INTO CafeTables (Id,KavinesId,Kavine,Rezervuota,Vietos) VALUES('" + a + "','" + id + "','" + name + "','" + null + "','" +5+ "')";
 }
-                        
-
+                       
                         cmd.ExecuteNonQuery();
 // pabaiga
 
