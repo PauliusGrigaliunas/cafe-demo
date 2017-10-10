@@ -69,8 +69,19 @@ namespace CafeApp
                     if (!CheckIfNameExists(dt, NameBox.Text) && !inserted)
                     {
                         cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
+
+                        //cmd.ExecuteNonQuery();
+                        //Paulius prikišo nagus
+
+                        for (int a = 0 ; a <= tables ; a++ ) { 
+                        cmd.CommandText = "INSERT INTO CafeTables (Id,KavinesId,Kavine,Rezervuota,Vietos) VALUES('" + a + "','" + id + "','" + name + "','" + null + "','" +5+ "')";
+}
+                        
+
                         cmd.ExecuteNonQuery();
-                        inserted = true;
+// pabaiga
+
+                            inserted = true;
                         MessageBox.Show("Restaurant successfully added!");
                         id++;
                     }
@@ -78,7 +89,8 @@ namespace CafeApp
                     {
                         MessageBox.Show("Restaurant with this name already exists, please try again.");
                     }
-                    connect.Close();
+
+                        connect.Close();
                 }
                 catch (Exception ex)
                 {
