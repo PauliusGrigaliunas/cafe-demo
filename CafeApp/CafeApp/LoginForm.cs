@@ -19,42 +19,6 @@ namespace CafeApp
             InitializeComponent();
             textBox2.PasswordChar = '*';
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                connect.Open();                                                //prisijungiam prie db
-                SqlCommand cmd = connect.CreateCommand();                      // sukuriam komanda
-                cmd.CommandType = CommandType.Text;                             //nustatom komanda teksto tipo
-                cmd.CommandText = "SELECT * FROM Users WHERE Email='"+Email.Text+"'AND Password='"+textBox2.Text+"'";                        // parenkam visa lentele 
-                cmd.ExecuteNonQuery();                                           //vykdom komandine cmd eilute
-                DataTable dt = new DataTable();                                //sukuriam saugojimui duomenu lentele
-                SqlDataAdapter da = new SqlDataAdapter(cmd);                   //sukuriam sql duomenu adapteri, kurie jau yra isspausdinti cmd                           
-                da.Fill(dt);                                                //uzpildom duomenu lentele dt
-                int i = dt.Rows.Count;                                          //surandame ar yra nors viena eilute su tokiais duomenim
-                if ( i == 1 )                                             //jei yra 1, tada cool, prisijungta sekminga
-                {
-                    MainMenu main = new MainMenu(Email.Text, this);
-                    main.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    Email.Text = null;
-                    textBox2.Text = null;
-                    MessageBox.Show("Atsiprašome, bet el. pašto adresas arba slaptažodis neteisingi!");
-                }
-                connect.Close();                  //atsijungiam nuo db
-            }
-            catch ( Exception ex )
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                connect.Close();
-            }
-        }
 
         private void Register_Click(object sender, EventArgs e)
         {
@@ -80,7 +44,7 @@ namespace CafeApp
         {
             if (e.KeyCode == Keys.Enter)
             {
-                button1.PerformClick();
+                Login.PerformClick();
 
             }
         }
@@ -94,7 +58,44 @@ namespace CafeApp
         {
             Email.Text = "testacc@mail.com";
             textBox2.Text = "password";
-            button1_Click(sender, e);
+            Login_Click(sender, e);
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connect.Open();                                                //prisijungiam prie db
+                SqlCommand cmd = connect.CreateCommand();                      // sukuriam komanda
+                cmd.CommandType = CommandType.Text;                             //nustatom komanda teksto tipo
+                cmd.CommandText = "SELECT * FROM Users WHERE Email='" + Email.Text + "'AND Password='" + textBox2.Text + "'";                        // parenkam visa lentele 
+                cmd.ExecuteNonQuery();                                           //vykdom komandine cmd eilute
+                DataTable dt = new DataTable();                                //sukuriam saugojimui duomenu lentele
+                SqlDataAdapter da = new SqlDataAdapter(cmd);                   //sukuriam sql duomenu adapteri, kurie jau yra isspausdinti cmd                           
+                da.Fill(dt);                                                //uzpildom duomenu lentele dt
+                int i = dt.Rows.Count;                                          //surandame ar yra nors viena eilute su tokiais duomenim
+                if (i == 1)                                             //jei yra 1, tada cool, prisijungta sekminga
+                {
+                    MainMenu main = new MainMenu(Email.Text, this);
+                    main.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    Email.Text = null;
+                    textBox2.Text = null;
+                    MessageBox.Show("Atsiprašome, bet el. pašto adresas arba slaptažodis neteisingi!");
+                }
+                connect.Close();                  //atsijungiam nuo db
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
     }
 }

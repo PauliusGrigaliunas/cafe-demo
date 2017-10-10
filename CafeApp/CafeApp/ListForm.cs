@@ -78,7 +78,31 @@ namespace CafeApp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ListForm_Load(object sender, EventArgs e)
+        {
+            Address address = Address.Instance;
+            Address.Instance.watcher = new GeoCoordinateWatcher();
+            Address.Instance.coordinate = new GeoCoordinate();
+            Address.Instance.watcher.StatusChanged += watcher_StatusChanged;
+            Address.Instance.watcher.Start();
+        }
+
+        private void watcher_StatusChanged(Object sender, GeoPositionStatusChangedEventArgs e)
+        {
+            if (e.Status == GeoPositionStatus.Ready)
+            {
+                if (Address.Instance.watcher.Position.Location.IsUnknown)
+                {
+                    searchBox.Text = "Location is unknown";
+                }
+                else
+                {
+                    Address.Instance.coordinate = Address.Instance.watcher.Position.Location;
+                }
+            }
+        }
+
+        private void ShowInfo_Click(object sender, EventArgs e)
         {
             try
             {
@@ -92,15 +116,14 @@ namespace CafeApp
             {
                 MessageBox.Show("Pasirinkite restoraną ar kavinę!");
             }
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BookTable_Click(object sender, EventArgs e)
         {
             new BookingForm().ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void SearchName_Click(object sender, EventArgs e)
         {
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
@@ -146,11 +169,10 @@ namespace CafeApp
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void SearchLocation_Click(object sender, EventArgs e)
         {
-
             Address address = Address.Instance;
-           
+
             var city = address.ReverseGeocode();
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
@@ -194,30 +216,6 @@ namespace CafeApp
                     connection.Close();
                 }
 
-            }
-        }
-
-        private void ListForm_Load(object sender, EventArgs e)
-        {
-            Address address = Address.Instance;
-            Address.Instance.watcher = new GeoCoordinateWatcher();
-            Address.Instance.coordinate = new GeoCoordinate();
-            Address.Instance.watcher.StatusChanged += watcher_StatusChanged;
-            Address.Instance.watcher.Start();
-        }
-
-        private void watcher_StatusChanged(Object sender, GeoPositionStatusChangedEventArgs e)
-        {
-            if (e.Status == GeoPositionStatus.Ready)
-            {
-                if (Address.Instance.watcher.Position.Location.IsUnknown)
-                {
-                    searchBox.Text = "Location is unknown";
-                }
-                else
-                {
-                    Address.Instance.coordinate = Address.Instance.watcher.Position.Location;
-                }
             }
         }
     }

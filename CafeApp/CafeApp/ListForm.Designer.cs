@@ -120,7 +120,7 @@
             this.infoButton.TabIndex = 1;
             this.infoButton.Text = "Show Info";
             this.infoButton.UseVisualStyleBackColor = true;
-            this.infoButton.Click += new System.EventHandler(this.button1_Click);
+            this.infoButton.Click += new System.EventHandler(this.ShowInfo_Click);
             // 
             // bookButton
             // 
@@ -131,7 +131,7 @@
             this.bookButton.TabIndex = 2;
             this.bookButton.Text = "Book A Table";
             this.bookButton.UseVisualStyleBackColor = true;
-            this.bookButton.Click += new System.EventHandler(this.button2_Click);
+            this.bookButton.Click += new System.EventHandler(this.BookTable_Click);
             // 
             // searchBox
             // 
@@ -148,7 +148,7 @@
             this.searchByNameButton.TabIndex = 4;
             this.searchByNameButton.Text = "Search by Name";
             this.searchByNameButton.UseVisualStyleBackColor = true;
-            this.searchByNameButton.Click += new System.EventHandler(this.button3_Click);
+            this.searchByNameButton.Click += new System.EventHandler(this.SearchName_Click);
             // 
             // searchByLocationButton
             // 
@@ -158,7 +158,7 @@
             this.searchByLocationButton.TabIndex = 5;
             this.searchByLocationButton.Text = "Search by Location";
             this.searchByLocationButton.UseVisualStyleBackColor = true;
-            this.searchByLocationButton.Click += new System.EventHandler(this.button4_Click);
+            this.searchByLocationButton.Click += new System.EventHandler(this.SearchLocation_Click);
             // 
             // ListForm
             // 
