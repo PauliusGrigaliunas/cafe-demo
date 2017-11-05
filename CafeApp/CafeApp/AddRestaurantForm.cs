@@ -13,7 +13,9 @@ namespace CafeApp
 {
     public partial class AddRestaurantForm : Form
     {
-        SqlConnection connect = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
+        SqlConnection connect = new SqlConnection(
+            "Server = tcp:covfefedb.database.windows.net, 1433; Initial Catalog = covfefe; Persist Security Info=False;User ID = { your_username }; Password={your_password}; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;");
 
         int id;
         string name;
@@ -27,6 +29,8 @@ namespace CafeApp
         string registerActorsEmail; //<--- prisijungusio registruotojo pastas
 
         bool inserted;
+
+        public SqlConnection Connect { get => connect; set => connect = value; }
 
         public AddRestaurantForm(string userEmail)
         {
@@ -56,8 +60,8 @@ namespace CafeApp
 
                 try
                 {
-                    connect.Open();
-                    SqlCommand cmd = connect.CreateCommand();
+                    Connect.Open();
+                    SqlCommand cmd = Connect.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "SELECT * FROM Restaurants";
                     cmd.ExecuteNonQuery();
@@ -78,7 +82,7 @@ namespace CafeApp
                     {
                         MessageBox.Show("Restaurant with this name already exists, please try again.");
                     }
-                    connect.Close();
+                    Connect.Close();
                 }
                 catch (Exception ex)
                 {
@@ -86,7 +90,7 @@ namespace CafeApp
                 }
                 finally
                 {
-                    connect.Close();
+                    Connect.Close();
                 }
             }
 

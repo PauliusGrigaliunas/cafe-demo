@@ -15,7 +15,7 @@ namespace CafeApp
         public string password;
         public bool inserted=false;
 
-        SqlConnection connection = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection connection = new SqlConnection("Server = tcp:covfefedb.database.windows.net, 1433; Initial Catalog = covfefe; Persist Security Info=False;User ID = { your_username }; Password={your_password}; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;");
 
 
 
