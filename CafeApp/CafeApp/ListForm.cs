@@ -58,8 +58,8 @@ namespace CafeApp
                         item.SubItems.Add(dr["Email"].ToString());
 
                         item.SubItems.Add(dr["Workdays"].ToString());
-                        item.SubItems.Add(dr["Saturdays"].ToString());
-                        item.SubItems.Add(dr["Sundays"].ToString());
+                        item.SubItems.Add(dr["Saturday"].ToString());
+                        item.SubItems.Add(dr["Sunday"].ToString());
                         listViewCafe.Items.Add(item);
                     }
 

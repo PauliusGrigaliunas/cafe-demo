@@ -63,7 +63,7 @@ namespace CafeApp
                     Connect.Open();
                     SqlCommand cmd = Connect.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT * FROM Restaurants";
+                    cmd.CommandText = "SELECT * FROM Cafes";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -72,15 +72,15 @@ namespace CafeApp
                     id++;
                     if (!CheckIfNameExists(dt, NameBox.Text) && !inserted)
                     {
-                        cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
+                        cmd.CommandText = "INSERT INTO Cafes (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
                         cmd.ExecuteNonQuery();
                         inserted = true;
-                        MessageBox.Show("Restaurant successfully added!");
+                        MessageBox.Show("Cafe successfully added!");
                         id++;
                     }
                     else
                     {
-                        MessageBox.Show("Restaurant with this name already exists, please try again.");
+                        MessageBox.Show("Cafe with this name already exists, please try again.");
                     }
                     Connect.Close();
                 }
