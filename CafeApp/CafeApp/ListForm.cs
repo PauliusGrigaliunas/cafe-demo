@@ -127,7 +127,7 @@ namespace CafeApp
         {
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Restaurants";
+            command.CommandText = "SELECT * FROM Cafes";
 
             listViewCafe.Items.Clear();
             {
@@ -176,7 +176,7 @@ namespace CafeApp
             var city = address.ReverseGeocode();
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Restaurants";
+            command.CommandText = "SELECT * FROM Cafes";
 
             listViewCafe.Items.Clear();
             {
