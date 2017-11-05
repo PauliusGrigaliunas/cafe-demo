@@ -15,7 +15,7 @@ namespace CafeApp
 {
     public partial class ListForm : Form
     {
-        SqlConnection connection = new SqlConnection("Server = tcp:covfefedb.database.windows.net, 1433; Initial Catalog = covfefe; Persist Security Info=False;User ID = { your_username }; Password={your_password}; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;");
+        SqlConnection connection = new SqlConnection("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
         SqlDataReader dr;
 
@@ -41,7 +41,7 @@ namespace CafeApp
         {
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Restaurants";
+            command.CommandText = "SELECT * FROM Cafes";
             {
                 try
                 {
@@ -58,8 +58,8 @@ namespace CafeApp
                         item.SubItems.Add(dr["Email"].ToString());
 
                         item.SubItems.Add(dr["Workdays"].ToString());
-                        item.SubItems.Add(dr["Saturday"].ToString());
-                        item.SubItems.Add(dr["Sunday"].ToString());
+                        item.SubItems.Add(dr["Saturdays"].ToString());
+                        item.SubItems.Add(dr["Sundays"].ToString());
                         listViewCafe.Items.Add(item);
                     }
 
