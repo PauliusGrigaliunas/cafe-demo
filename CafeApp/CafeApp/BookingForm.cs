@@ -21,7 +21,18 @@ namespace CafeApp
             InitializeComponent();
         }
 
-        private void bookTable_Click(object sender, EventArgs e)
+        int id;
+        string email;
+        public BookingForm(int id, string email)
+        {
+            this.id = id;
+            this.email = email;
+            InitializeComponent();
+        }
+
+
+
+            private void bookTable_Click(object sender, EventArgs e)
         {
             DateTime newDate = selectedDate.
                 AddHours(-selectedDate.Hour).                     //nunulinam selected date reiksme, jei dar yra kazkas daugiau uz 0

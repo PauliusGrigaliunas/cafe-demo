@@ -15,7 +15,7 @@ namespace CafeApp
         public string password;
         public bool inserted=false;
 
-        SqlConnection connection = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection connection = new SqlConnection("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
 
 
@@ -75,6 +75,14 @@ namespace CafeApp
         {
             if (e.KeyCode == Keys.Enter)
             {
+                textBoxPhone.Focus();
+            }
+        }
+
+        private void RegisterWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
                 textBox3.Focus();
             }
         }
@@ -119,7 +127,7 @@ namespace CafeApp
                     sa.Fill(dt);
                     if (!CheckIfMailExists(dt, textBox3.Text) && !inserted)
                     {
-                        cmd.CommandText = "INSERT INTO Users (Email,Password,Name,Surname) VALUES('" + textBox3.Text + "','" + textBox4.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
+                        cmd.CommandText = "INSERT INTO Users (Email,Password,Phone,Name,Surname) VALUES('" + textBox3.Text + "','" + textBox4.Text + "','"+ textBoxPhone.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
                         cmd.ExecuteNonQuery();
                         inserted = true;
                         MessageBox.Show("User successfully registered!");

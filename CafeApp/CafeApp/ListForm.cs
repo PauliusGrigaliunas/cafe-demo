@@ -15,7 +15,7 @@ namespace CafeApp
 {
     public partial class ListForm : Form
     {
-        SqlConnection connection = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection connection = new SqlConnection("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
         SqlDataReader dr;
 
@@ -41,7 +41,7 @@ namespace CafeApp
         {
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Restaurants";
+            command.CommandText = "SELECT * FROM Cafes";
             {
                 try
                 {
@@ -120,14 +120,14 @@ namespace CafeApp
 
         private void BookTable_Click(object sender, EventArgs e)
         {
-            new BookingForm().ShowDialog();
+            new BookingForm(id, email).ShowDialog();
         }
 
         private void SearchName_Click(object sender, EventArgs e)
         {
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Restaurants";
+            command.CommandText = "SELECT * FROM Cafes";
 
             listViewCafe.Items.Clear();
             {
@@ -176,7 +176,7 @@ namespace CafeApp
             var city = address.ReverseGeocode();
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM Restaurants";
+            command.CommandText = "SELECT * FROM Cafes";
 
             listViewCafe.Items.Clear();
             {

@@ -13,7 +13,9 @@ namespace CafeApp
 {
     public partial class AddRestaurantForm : Form
     {
-        SqlConnection connect = new SqlConnection("Server=tcp:cafeappdb.database.windows.net,1433;Initial Catalog=CafeAppDB;Persist Security Info=False;User ID=admincontrol34;Password=Admincontrol7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
+        SqlConnection connect = new SqlConnection
+            ("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
         int id;
         string name;
@@ -27,6 +29,8 @@ namespace CafeApp
         string registerActorsEmail; //<--- prisijungusio registruotojo pastas
 
         bool inserted;
+
+        public SqlConnection Connect { get => connect; set => connect = value; }
 
         public AddRestaurantForm(string userEmail)
         {
@@ -56,10 +60,10 @@ namespace CafeApp
 
                 try
                 {
-                    connect.Open();
-                    SqlCommand cmd = connect.CreateCommand();
+                    Connect.Open();
+                    SqlCommand cmd = Connect.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT * FROM Restaurants";
+                    cmd.CommandText = "SELECT * FROM Cafes";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -68,17 +72,17 @@ namespace CafeApp
                     id++;
                     if (!CheckIfNameExists(dt, NameBox.Text) && !inserted)
                     {
-                        cmd.CommandText = "INSERT INTO Restaurants (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
+                        cmd.CommandText = "INSERT INTO Cafes (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
                         cmd.ExecuteNonQuery();
                         inserted = true;
-                        MessageBox.Show("Restaurant successfully added!");
+                        MessageBox.Show("Cafe successfully added!");
                         id++;
                     }
                     else
                     {
-                        MessageBox.Show("Restaurant with this name already exists, please try again.");
+                        MessageBox.Show("Cafe with this name already exists, please try again.");
                     }
-                    connect.Close();
+                    Connect.Close();
                 }
                 catch (Exception ex)
                 {
@@ -86,7 +90,7 @@ namespace CafeApp
                 }
                 finally
                 {
-                    connect.Close();
+                    Connect.Close();
                 }
             }
 
