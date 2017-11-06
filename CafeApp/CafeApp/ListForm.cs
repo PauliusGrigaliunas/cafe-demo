@@ -120,7 +120,7 @@ namespace CafeApp
 
         private void BookTable_Click(object sender, EventArgs e)
         {
-            new BookingForm().ShowDialog();
+            new BookingForm(id, email).ShowDialog();
         }
 
         private void SearchName_Click(object sender, EventArgs e)
