@@ -13,8 +13,10 @@ namespace CafeApp
 {
     public partial class CafeDataForm : Form
     {
+
         Connector connector = new Connector();
         SqlConnection connect;
+        
         public int id;
         string checkingEmail;
         string email;

@@ -15,6 +15,7 @@ namespace CafeApp
     {
         Connector connector = new Connector();
         SqlConnection connect;
+
         public LoginForm()
         {
             connect = new SqlConnection(connector.ConnectionString);

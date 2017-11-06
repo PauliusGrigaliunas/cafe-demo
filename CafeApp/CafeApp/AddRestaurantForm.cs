@@ -13,6 +13,7 @@ namespace CafeApp
 {
     public partial class AddRestaurantForm : Form
     {
+
         Connector connector = new Connector();
         SqlConnection connect;
 

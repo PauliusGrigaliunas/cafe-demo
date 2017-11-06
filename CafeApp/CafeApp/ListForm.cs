@@ -15,9 +15,9 @@ namespace CafeApp
 {
     public partial class ListForm : Form
     {
-        Connector connector = new Connector();
-        SqlConnection connection;
 
+        Connector connector = new Connector();
+        SqlConnection connect;
         SqlDataReader dr;
 
         public int id;
@@ -50,6 +50,7 @@ namespace CafeApp
                 {
                     connection.Open();
                     dr = command.ExecuteReader();
+                    
 
                     while (dr.Read())
                     {
