@@ -75,6 +75,14 @@ namespace CafeApp
         {
             if (e.KeyCode == Keys.Enter)
             {
+                textBoxPhone.Focus();
+            }
+        }
+
+        private void RegisterWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
                 textBox3.Focus();
             }
         }
@@ -119,7 +127,7 @@ namespace CafeApp
                     sa.Fill(dt);
                     if (!CheckIfMailExists(dt, textBox3.Text) && !inserted)
                     {
-                        cmd.CommandText = "INSERT INTO Users (Email,Password,Name,Surname) VALUES('" + textBox3.Text + "','" + textBox4.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
+                        cmd.CommandText = "INSERT INTO Users (Email,Password,Phone,Name,Surname) VALUES('" + textBox3.Text + "','" + textBox4.Text + "','"+ textBoxPhone.Text + "','" + textBox1.Text + "','" + textBox2.Text + "')";
                         cmd.ExecuteNonQuery();
                         inserted = true;
                         MessageBox.Show("User successfully registered!");
