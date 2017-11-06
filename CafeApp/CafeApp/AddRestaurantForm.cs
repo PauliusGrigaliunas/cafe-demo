@@ -74,6 +74,12 @@ namespace CafeApp
                     {
                         cmd.CommandText = "INSERT INTO Cafes (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
                         cmd.ExecuteNonQuery();
+
+                        for ( int i = 1; i <= tables ; i++) { 
+                        cmd.CommandText = "INSERT INTO CafeTable('Kavinės id',Nr) VALUES('" + id + "','" + i + "')";
+                        }
+
+                        cmd.ExecuteNonQuery();
                         inserted = true;
                         MessageBox.Show("Cafe successfully added!");
                         id++;
