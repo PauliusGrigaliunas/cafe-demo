@@ -18,8 +18,6 @@ namespace CafeApp
         Connector connector = new Connector();
         SqlConnection connection;
 
-
-
         public RegisterWindow()
         {
             connection = new SqlConnection(connector.ConnectionString);

@@ -15,6 +15,7 @@ namespace CafeApp
     {
         Connector Connector = new Connector();
         private SqlConnection connection;
+
         private SqlDataReader sqlDataReader;
 
         string _kavinesPavadinimas;
