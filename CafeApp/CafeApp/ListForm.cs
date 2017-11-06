@@ -15,7 +15,8 @@ namespace CafeApp
 {
     public partial class ListForm : Form
     {
-        SqlConnection connection = new SqlConnection("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        Connector connector = new Connector();
+        SqlConnection connection;
 
         SqlDataReader dr;
 
@@ -23,6 +24,8 @@ namespace CafeApp
         string email;
         public ListForm(string email)
         {
+            connection = new SqlConnection(connector.ConnectionString);
+
             this.email = email;
             InitializeComponent();
 
