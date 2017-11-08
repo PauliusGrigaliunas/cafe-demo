@@ -99,13 +99,13 @@ namespace CafeApp
                 User loggedUser = AccOps.RetrieveUserData(Email.Text, textBox2.Text);
                 if (loggedUser != null && loggedUser.Premium == true) //if correct details and is premium
                 {
-                    po.WritePremiumUserFile(new LoginDetails(Email.Text, textBox2.Text)); //TODO move PremiumFile creation to different login button?
+                    po.WritePremiumUserFile(new LoginDetails(Email.Text, textBox2.Text));
                     login = po.GetPremiumLogin();
                     GoToMainMenu(login.email);
                 }
                 else
                 {
-                    //TODO print an error message
+                    StatusLabel.Text = "You have entered a non-premium user's login data. Make sure you're a premium user and try to log in again";
                 }
             }
         }
