@@ -36,7 +36,7 @@
             this.Login = new System.Windows.Forms.Button();
             this.CupOfCafe = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PremiumLogin_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CupOfCafe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(196, 20);
             this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // Login
@@ -105,15 +104,15 @@
             this.Register.UseVisualStyleBackColor = true;
             this.Register.Click += new System.EventHandler(this.Register_Click);
             // 
-            // button1
+            // PremiumLogin_button
             // 
-            this.button1.Location = new System.Drawing.Point(323, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 43);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Premium prisijungimas";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.PremiumLogin_button.Location = new System.Drawing.Point(323, 315);
+            this.PremiumLogin_button.Name = "PremiumLogin_button";
+            this.PremiumLogin_button.Size = new System.Drawing.Size(80, 43);
+            this.PremiumLogin_button.TabIndex = 7;
+            this.PremiumLogin_button.Text = "Premium prisijungimas";
+            this.PremiumLogin_button.UseVisualStyleBackColor = true;
+            this.PremiumLogin_button.Click += new System.EventHandler(this.PremiumLogin_Click);
             // 
             // LoginForm
             // 
@@ -121,7 +120,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(415, 383);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PremiumLogin_button);
             this.Controls.Add(this.Register);
             this.Controls.Add(this.CupOfCafe);
             this.Controls.Add(this.Login);
@@ -131,7 +130,6 @@
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CupOfCafe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,6 +145,6 @@
         private System.Windows.Forms.Button Login;
         private System.Windows.Forms.PictureBox CupOfCafe;
         private System.Windows.Forms.Button Register;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PremiumLogin_button;
     }
 }
