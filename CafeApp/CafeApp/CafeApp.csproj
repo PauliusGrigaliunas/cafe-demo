@@ -184,6 +184,10 @@
     <None Include="Resources\atsisiųsti.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj">
+      <Project>{8006b685-7a14-4a34-83b4-89f629021f84}</Project>
+      <Name>Backend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GoogleDirections\GoogleDirections.csproj">
       <Project>{7c6447b2-d889-4306-ad8b-da5542054c66}</Project>
       <Name>GoogleDirections</Name>

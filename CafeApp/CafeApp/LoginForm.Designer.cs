@@ -36,14 +36,16 @@
             this.Login = new System.Windows.Forms.Button();
             this.CupOfCafe = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.Button();
-            this.loginShortcutButton = new System.Windows.Forms.Button();
+            this.PremiumLogin_button = new System.Windows.Forms.Button();
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.PremiumExplanationLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CupOfCafe)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 270);
+            this.label1.Location = new System.Drawing.Point(50, 282);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 0;
@@ -52,7 +54,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(70, 296);
+            this.Password.Location = new System.Drawing.Point(50, 308);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(64, 13);
             this.Password.TabIndex = 1;
@@ -60,7 +62,7 @@
             // 
             // Email
             // 
-            this.Email.Location = new System.Drawing.Point(153, 263);
+            this.Email.Location = new System.Drawing.Point(120, 275);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(196, 20);
             this.Email.TabIndex = 2;
@@ -68,18 +70,17 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(153, 289);
+            this.textBox2.Location = new System.Drawing.Point(120, 301);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(196, 20);
             this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // Login
             // 
-            this.Login.Location = new System.Drawing.Point(233, 328);
+            this.Login.Location = new System.Drawing.Point(323, 275);
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(96, 30);
+            this.Login.Size = new System.Drawing.Size(79, 46);
             this.Login.TabIndex = 4;
             this.Login.Text = "Prisijungti";
             this.Login.UseVisualStyleBackColor = true;
@@ -97,33 +98,54 @@
             // 
             // Register
             // 
-            this.Register.Location = new System.Drawing.Point(106, 328);
+            this.Register.Location = new System.Drawing.Point(323, 327);
             this.Register.Name = "Register";
-            this.Register.Size = new System.Drawing.Size(86, 30);
+            this.Register.Size = new System.Drawing.Size(80, 36);
             this.Register.TabIndex = 6;
             this.Register.Text = "Registruotis";
             this.Register.UseVisualStyleBackColor = true;
             this.Register.Click += new System.EventHandler(this.Register_Click);
             // 
-            // loginShortcutButton
+            // PremiumLogin_button
             // 
-            this.loginShortcutButton.AutoSize = true;
-            this.loginShortcutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.loginShortcutButton.Location = new System.Drawing.Point(0, 360);
-            this.loginShortcutButton.Name = "loginShortcutButton";
-            this.loginShortcutButton.Size = new System.Drawing.Size(114, 23);
-            this.loginShortcutButton.TabIndex = 7;
-            this.loginShortcutButton.Text = "login shortcut for test";
-            this.loginShortcutButton.UseVisualStyleBackColor = true;
-            this.loginShortcutButton.Click += new System.EventHandler(this.button2_Click);
+            this.PremiumLogin_button.Location = new System.Drawing.Point(53, 327);
+            this.PremiumLogin_button.Name = "PremiumLogin_button";
+            this.PremiumLogin_button.Size = new System.Drawing.Size(80, 60);
+            this.PremiumLogin_button.TabIndex = 7;
+            this.PremiumLogin_button.Text = "Premium prisijungimas";
+            this.PremiumLogin_button.UseVisualStyleBackColor = true;
+            this.PremiumLogin_button.Click += new System.EventHandler(this.PremiumLogin_Click);
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.Location = new System.Drawing.Point(54, 237);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(295, 35);
+            this.StatusLabel.TabIndex = 8;
+            this.StatusLabel.Text = "this is where there will be status messages like \"Wrong password entered\" or \"no " +
+    "premium user found\" , etc.";
+            this.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PremiumExplanationLabel
+            // 
+            this.PremiumExplanationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.PremiumExplanationLabel.Location = new System.Drawing.Point(139, 324);
+            this.PremiumExplanationLabel.Name = "PremiumExplanationLabel";
+            this.PremiumExplanationLabel.Size = new System.Drawing.Size(171, 60);
+            this.PremiumExplanationLabel.TabIndex = 9;
+            this.PremiumExplanationLabel.Text = "Premium prisijungimas leidžia prisijungti su vienu mygtuko paspaudimu. Jei tai pi" +
+    "rmas kartas - suveskite savo prisijungimo duomenis ir spustelkite \"Premium prisi" +
+    "jungimas\" mygtuką";
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(415, 383);
-            this.Controls.Add(this.loginShortcutButton);
+            this.ClientSize = new System.Drawing.Size(415, 405);
+            this.Controls.Add(this.PremiumExplanationLabel);
+            this.Controls.Add(this.StatusLabel);
+            this.Controls.Add(this.PremiumLogin_button);
             this.Controls.Add(this.Register);
             this.Controls.Add(this.CupOfCafe);
             this.Controls.Add(this.Login);
@@ -133,7 +155,6 @@
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CupOfCafe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,6 +170,8 @@
         private System.Windows.Forms.Button Login;
         private System.Windows.Forms.PictureBox CupOfCafe;
         private System.Windows.Forms.Button Register;
-        private System.Windows.Forms.Button loginShortcutButton;
+        private System.Windows.Forms.Button PremiumLogin_button;
+        private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.Label PremiumExplanationLabel;
     }
 }
