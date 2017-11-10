@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Backend;
 
 namespace CafeApp
 {
     public partial class LoginForm : Form
     {
+        AccountOperations AccOps = new AccountOperations();
+
         SqlConnection connect = new SqlConnection("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         public LoginForm()
         {
@@ -24,11 +27,6 @@ namespace CafeApp
         {
             RegisterWindow reg = new RegisterWindow();
             reg.ShowDialog();
-
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -47,18 +45,6 @@ namespace CafeApp
                 Login.PerformClick();
 
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e) //Button made so I don't have to type in login details while testing (K.S.)
-        {
-            Email.Text = "testacc@mail.com";
-            textBox2.Text = "password";
-            Login_Click(sender, e);
         }
 
         private void Login_Click(object sender, EventArgs e)
@@ -96,6 +82,39 @@ namespace CafeApp
             {
                 connect.Close();
             }
+        }
+
+        private void PremiumLogin_Click(object sender, EventArgs e)
+        {   
+            PremiumOperations po = new PremiumOperations();
+
+            LoginDetails login = po.GetPremiumLogin();
+            if (login != null)    //Has a premium file
+            {
+                User loggedUser = AccOps.RetrieveUserData(login.email, login.password);
+                GoToMainMenu(loggedUser.Email);
+            }
+            else                  //No premium file, but hoping for premium acc
+            {
+                User loggedUser = AccOps.RetrieveUserData(Email.Text, textBox2.Text);
+                if (loggedUser != null && loggedUser.Premium == true) //if correct details and is premium
+                {
+                    po.WritePremiumUserFile(new LoginDetails(Email.Text, textBox2.Text));
+                    login = po.GetPremiumLogin();
+                    GoToMainMenu(login.email);
+                }
+                else
+                {
+                    StatusLabel.Text = "You have entered a non-premium user's login data. Make sure you're a premium user and try to log in again";
+                }
+            }
+        }
+
+        private void GoToMainMenu(string Email)
+        {
+            MainMenu main = new MainMenu(Email, this);
+            main.Show();
+            this.Hide();
         }
     }
 }
