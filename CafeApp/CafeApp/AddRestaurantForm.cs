@@ -14,8 +14,8 @@ namespace CafeApp
     public partial class AddRestaurantForm : Form
     {
 
-        SqlConnection connect = new SqlConnection
-            ("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        Connector connector = new Connector();
+        SqlConnection connect;
 
         int id;
         string name;
@@ -34,6 +34,7 @@ namespace CafeApp
 
         public AddRestaurantForm(string userEmail)
         {
+            connect = new SqlConnection (connector.ConnectionString);
             registerActorsEmail = userEmail;
             InitializeComponent();
         }
@@ -74,6 +75,15 @@ namespace CafeApp
                     {
                         cmd.CommandText = "INSERT INTO Cafes (ID,Name,Address,Tables,Phone,Workdays,Saturday,Sunday,Email) VALUES('" + id + "','" + name + "','" + address + "','" + tables + "','" + phone + "','" + workdays + "','" + saturday + "','" + sunday + "','" + registerActorsEmail + "')";
                         cmd.ExecuteNonQuery();
+
+                        //+
+                        for ( int i = 1; i <= tables ; i++) { 
+                        cmd.CommandText = "INSERT INTO CafeTable(Cafe,Nr) VALUES('" + id + "','" + i + "')";
+                            cmd.ExecuteNonQuery();
+                        }
+                        
+                        //-
+
                         inserted = true;
                         MessageBox.Show("Cafe successfully added!");
                         id++;

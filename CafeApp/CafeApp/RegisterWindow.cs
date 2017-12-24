@@ -15,12 +15,12 @@ namespace CafeApp
         public string password;
         public bool inserted=false;
 
-        SqlConnection connection = new SqlConnection("Server=tcp:covfefedb.database.windows.net,1433;Initial Catalog=covfefe;Persist Security Info=False;User ID=kamiKaze;Password=p0m1d0r4s.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-
-
+        Connector connector = new Connector();
+        SqlConnection connection;
 
         public RegisterWindow()
         {
+            connection = new SqlConnection(connector.ConnectionString);
             InitializeComponent();
         }
 

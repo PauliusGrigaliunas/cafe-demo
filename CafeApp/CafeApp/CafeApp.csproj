@@ -78,6 +78,7 @@
     <Compile Include="BookingForm.designer.cs">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connector.cs" />
     <Compile Include="ErrorScreen.cs">
       <SubType>Form</SubType>
     </Compile>
